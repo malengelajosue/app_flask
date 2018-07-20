@@ -6,10 +6,10 @@ import threading
 import tornado.ioloop
 import tornado.web
 import tornado.websocket
-import tornado.wsgi
+import tornado.wsgi as myapp_wsgi
 from tornado.iostream import StreamClosedError
-from alpha.wsgi import application as myapp_wsgi
-from app.models import Coordonates,Site
+
+#from app.models import Coordonates,Site
 from random import randint
 from datetime import datetime
 import time
