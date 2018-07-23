@@ -11,7 +11,7 @@ $(document).ready(function () {
     var map;
     var lat, long, alt, tm, speed, sat, course, marker, ws, infowindow;
     var siteName, captureType, comment, btnCaptureModal, txtComment, 
-    cbxCaptureType, txtSiteName, btnStopCaptureModal, 
+    cbxCaptureType, txtSiteName, btnStopCaptureModal, chkbox, 
     persitInterval, btnLaunchModal,btnFullScreen;
     var myLongitude, myLatitude;
     //Enregisrement
@@ -37,7 +37,7 @@ $(document).ready(function () {
         infowindow = new google.maps.InfoWindow({
             content: contentString
         });
-        infowindow.open(map, marker);
+        
     }
     function makeMarker() {
         if (marker === null) {
@@ -102,13 +102,7 @@ $(document).ready(function () {
         }
         ));
 //make marker
-        makeMarker();
-        //Events
-
-        google.maps.event.addListener(marker, 'click', function () {
-            makeMarker();
-            console.log({lat: myLatitude, lng: myLongitude});
-        });
+       
     }
     ;
 
@@ -145,8 +139,13 @@ $(document).ready(function () {
         var data = evt.data;
         console.log('message recu: ' + data);
         data = JSON.parse(data);
-        myLongitude = parseFloat(data.Long);
-        myLatitude = parseFloat(data.Lat);
+        if (!isNaN( parseFloat(data.Long))) {
+            myLongitude =  parseFloat(data.Long);
+        }
+        if (!isNaN(parseFloat(data.Lat))) {
+            myLatitude = parseFloat(data.Lat);
+        }
+        
         lat = $('#lat');
         long = $('#long');
         alt = $('#alt');
@@ -223,7 +222,14 @@ $(document).ready(function () {
             ws.send(msg);
         }
 
-        map.setCenter({lat: myLatitude, lng: myLongitude});
+        if (map===undefined) {
+            initMap();
+            map.setCenter({lat: myLatitude, lng: myLongitude});
+        }
+        else{
+            map.setCenter({lat: myLatitude, lng: myLongitude});
+        }
+        
 
         var myCity = new google.maps.Circle({
             center: {lat: myLatitude, lng: myLongitude},
@@ -235,6 +241,14 @@ $(document).ready(function () {
             fillOpacity: 0.4
         });
         myCity.setMap(map);
+        
+         makeMarker();
+        //Events
+
+        google.maps.event.addListener(marker, 'click', function () {
+            makeMarker();
+            
+        });
 
     }
 
@@ -244,7 +258,6 @@ $(document).ready(function () {
         initMap();
         map.setCenter({lat: myLatitude, lng: myLongitude});
 
-        console.log({lat: myLatitude, lng: myLongitude});
     }, 1000);
     //remettre la carte au centre en fonction des coordonnees apres chaque 2 secondes
 
@@ -254,10 +267,20 @@ $(document).ready(function () {
     btnLaunchModal = $('#btnLaunchModal');
     btnStopCaptureModal = $('#btnStopCaptureModal');
     btnFullScreen=$('#btnFullScreen');
+    chkbox=$('#chkbox');
     btnStopCaptureModal.hide();
     cbxCaptureType = $('#cbxCaptureType');
     txtSiteName = $('#txtSiteName');
     txtComment = $('#txtComment');
+    chkbox.on('click',function(){
+        if ($(this).is(':checked')) {
+            console.log('video on');
+            $('#imgtag').attr('src',"/video_feed')").load();
+        }else{
+           $('#imgtag').attr('src',"img/video_loading2.gif' )").load();
+            console.log('video off');
+        }
+    });
     btnFullScreen.on('click',function(){
         toggleFullScreen(document.body);
     });
