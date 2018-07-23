@@ -1,18 +1,12 @@
 #!/usr/bin/env python
-from importlib import import_module
-import os
 from flask import Flask, render_template, Response,abort
 from camera_opencv import Camera
-
-# import camera driver
-
-
-
-# Raspberry Pi camera module (requires picamera package)
-# from camera_pi import Camera
+from  datetime import date
+from models.model import  Sites
+from models.model import Coordonnates
+from models.db_connection  import Session,engine,Base
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
@@ -33,6 +27,13 @@ def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/sites')
+def sites():
+    session=Session()
+    sites=session.query(Sites)
+    print(type(sites))
+    return render_template('timeline.html',sites=sites)
+
 
 
 if __name__ == '__main__':
