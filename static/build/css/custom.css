@@ -1,3 +1,6 @@
+
+
+
 #map{
     height: 6000px;
 }
@@ -16,6 +19,7 @@ html , body{
 .full-height{
  height:100%;
  }
+ 
 
 .daterangepicker .ranges li {
     color: #73879C
@@ -4269,4 +4273,6 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 *:-moz-full-screen {
    overflow: auto !important;
 }
+
+
 

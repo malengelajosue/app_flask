@@ -1,11 +1,19 @@
 {% extends 'layouts/base.html' %}
 {% block container %}
 
+    <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2" id="txtresearch">
+        <div class="input-group" >
+            <input  type="text" placeholder="Rechercher un prelevement" class="form-control">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default">Rechercher</button>
+            </span>
+        </div>
+    </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2> Les prelevements<small></small></h2>
+            <h2>Historique des  prélèvements <small></small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -24,45 +32,36 @@
             <div class="clearfix"></div>
         </div>
         <div class="x_content">
+
             <ul class="list-unstyled timeline">
                 {% for s in sites %}
                 <li>
                     <div class="block">
                         <div class="tags">
-                            <a href="/app/timeline_details/{{ s.site_number}}" class="tag">
-                                <span><i class="fa fa-eye"></i> Visualiser</span>
+                            <a href="" class="tag">
+                                <span>Apercu <i class="fa fa-eye"></i></span>
                             </a>
                         </div>
                         <div class="block_content">
-
+                            <h2 class="title">
+                                <a>Site de &nbsp; {{s.name |title}} &nbsp;({{s.coordonnates|length}} &nbsp;points)</a>
+                            </h2>
                             <div class="byline">
-                                <span>date de creation: {{s.created_at}}</span> 
+                                <span>Crée le &nbsp; {{s.create_at}} </span> type de prelevement <a>{{s.capture_type }}</a>
                             </div>
-                            <div class="byline">
-                                <span>Nombre des points: {{s.coordonnates|length}}</span>
-                            </div>
-                            <h5 class="title">
-                                <a>NOM: {{s.name |upper}}</a>
-                            </h5>
-                            <h5 class="title">
-                                <a>TYPE  DE PRELEVEMENT:{{s.capture_type }}</a>
-                            </h5>
+                            <p class="excerpt">{{s.description }}
 
-
-                            <p class="excerpt">
-                                Description: {{s.description }}
                             </p>
                             <p class="url">
                                 <a href="#" class="btn btn-info btn-xs"> 
                                     Fichier GPX &nbsp; <i class="fa fa-download"></i> 
                                 </a>
-                               
-                            </p>
 
+                            </p>
                             <div class="accordion" id="accordion{{s.id}}" role="tablist" aria-multiselectable="true">
                                 <div class="panel">
                                     <a class="panel-heading collapsed" role="tab" id="headingOne1" data-toggle="collapse" data-parent="#accordion{{s.id}}" href="#collapseOne{{s.id}}" aria-expanded="false" aria-controls="collapseOne">
-                                        <h4 class="panel-title">Details des coordonnees</h4>
+                                        <h4 class="panel-title">Details</h4>
                                     </a>
                                     <div id="collapseOne{{s.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
@@ -88,12 +87,12 @@
                                                     {% for c in s.coordonnates %}
                                                     <tr class="even pointer">
                                                         <td class="a-center ">
-                                                            {{c.id}}
+                                                            {{loop.index}}
                                                         </td>
                                                         <td class=" ">{{c.lat}}</td>
                                                         <td class=" ">{{c.long}}</td>
                                                         <td class=" ">{{c.alt}}<i class="success fa fa-long-arrow-up"></i></td>
-                                                        <td class=" ">{{c.vitesse}}</td>
+                                                        <td class=" ">{{c.speed}}</td>
                                                         <td class=" ">{{c.course}}</td>
                                                         <td class=" ">{{c.satellite}}</td>
                                                         <td class=" ">{{c.moment}}</td>
@@ -113,11 +112,15 @@
 
                                 </div>
                             </div>
-                            </li>
-                            {% endfor %}
-                            </ul>
-
                         </div>
                     </div>
-                    </div>
-                    {% endblock %}
+                </li>
+                {% endfor %}
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

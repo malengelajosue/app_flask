@@ -20,6 +20,7 @@
 
         <!-- Custom Theme Style -->
         <link href="{{ url_for('static',filename='build/css/custom.min.css' ) }} " rel="stylesheet">
+        <link href="{{ url_for('static',filename='build/css/style.css' ) }} " rel="stylesheet">
         <link href="{{ url_for('static',filename='build/css/pnotify.css' ) }} " rel="stylesheet">
         <link href="{{ url_for('static',filename='build/css/switchery.min.css' ) }} " rel="stylesheet">
         <script src="{{ url_for('static',filename='vendors/jquery/dist/jquery.min.js' ) }} "></script>
@@ -32,7 +33,7 @@
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
-                            <a href="index.html" class="site_title"><i class="fa fa-rocket"></i> <span>CARTO DRONE</span></a>
+                            <a href="{{url_for('home')}}" class="site_title"><i class="fa fa-rocket"></i> <span>CARTO DRONE</span></a>
                         </div>
 
                         <div class="clearfix"></div>

@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 from flask import Flask, render_template, Response,abort
+from sqlalchemy import desc
+
 from camera_opencv import Camera
 from  datetime import date
 from models.model import  Sites
@@ -12,7 +14,18 @@ app = Flask(__name__)
 def index():
     """Video streaming home page."""
     return render_template('index.html')
-
+@app.route('/home')
+def home():
+    """Video streaming home page."""
+    return render_template('index.html')
+@app.route('/map')
+def map():
+    """Video streaming home page."""
+    return render_template('index.html')
+@app.route('/control')
+def control():
+    """Video streaming home page."""
+    return render_template('index.html')
 
 def gen(camera):
     """Video streaming generator function."""
@@ -30,8 +43,8 @@ def video_feed():
 @app.route('/sites')
 def sites():
     session=Session()
-    sites=session.query(Sites)
-    print(type(sites))
+    sites=session.query(Sites).order_by(desc(Sites.id))
+
     return render_template('timeline.html',sites=sites)
 
 
