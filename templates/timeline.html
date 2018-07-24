@@ -1,5 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% block container %}
+
+
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
@@ -54,17 +56,68 @@
                                 <a href="#" class="btn btn-info btn-xs"> 
                                     Fichier GPX &nbsp; <i class="fa fa-download"></i> 
                                 </a>
-                                <a href="/app/data/{{ s.site_number}}" class="btn btn-default btn-xs"> 
-                                    Details &nbsp; <i class="fa fa-share"></i> 
-                                </a>
+                               
                             </p>
+
+                            <div class="accordion" id="accordion{{s.id}}" role="tablist" aria-multiselectable="true">
+                                <div class="panel">
+                                    <a class="panel-heading collapsed" role="tab" id="headingOne1" data-toggle="collapse" data-parent="#accordion{{s.id}}" href="#collapseOne{{s.id}}" aria-expanded="false" aria-controls="collapseOne">
+                                        <h4 class="panel-title">Details des coordonnees</h4>
+                                    </a>
+                                    <div id="collapseOne{{s.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                                        <div class="panel-body">
+
+                                            <table class="table table-striped jambo_table bulk_action">
+                                                <thead>
+                                                    <tr class="headings">
+
+                                                        <th class="column-title">No  </th>
+                                                        <th class="column-title">Latitude </th>
+                                                        <th class="column-title">Longitude</th>
+                                                        <th class="column-title">Altitude</th>
+                                                        <th class="column-title">Vitesse</th>
+                                                        <th class="column-title">Course</th>
+                                                        <th class="column-title">Satellite</th>
+                                                        <th class="column-title">Date</th>
+                                                        <th class="column-title">Site </th>
+
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    {% for c in s.coordonnates %}
+                                                    <tr class="even pointer">
+                                                        <td class="a-center ">
+                                                            {{c.id}}
+                                                        </td>
+                                                        <td class=" ">{{c.lat}}</td>
+                                                        <td class=" ">{{c.long}}</td>
+                                                        <td class=" ">{{c.alt}}<i class="success fa fa-long-arrow-up"></i></td>
+                                                        <td class=" ">{{c.vitesse}}</td>
+                                                        <td class=" ">{{c.course}}</td>
+                                                        <td class=" ">{{c.satellite}}</td>
+                                                        <td class=" ">{{c.moment}}</td>
+                                                        <td class=" ">{{s.name}}</td>
+
+                                                    </tr>
+                                                    {% if (s.coordonnates)|length==0 %}
+                                                    <tr>Aucune donnee trouvé !</tr>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            </li>
+                            {% endfor %}
+                            </ul>
+
                         </div>
                     </div>
-                </li>
-               {% endfor %}
-            </ul>
-
-        </div>
-    </div>
-</div>
-{% endblock %}
+                    </div>
+                    {% endblock %}

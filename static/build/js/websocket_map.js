@@ -196,7 +196,7 @@ $(document).ready(function () {
             ws.send(messageToSendPersist);
             setTimeout(function () {
                 ws.send(msg);
-            }, 500);
+            }, 200);
             new PNotify({
                 title: 'Debut de l\'enregistrement',
                 text: 'Fin de l\'enregistrement des donnees.',
@@ -210,7 +210,7 @@ $(document).ready(function () {
             ws.send(msgToStop);
             setTimeout(function () {
                 ws.send(msg);
-            }, 500);
+            }, 50);
             new PNotify({
                 title: 'Fin de l\'enregistrement',
                 text: 'Fin de l\'enregistrement des donnees.',

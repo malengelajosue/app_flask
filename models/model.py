@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from sqlalchemy import Column, String, Integer, Date, Text, ForeignKey
+from sqlalchemy import Column, String, Integer, Date, Text, ForeignKey,DateTime
 from sqlalchemy.orm import relationship
 
 from . db_connection import Base
@@ -20,21 +20,26 @@ class Sites(Base):
         self.capture_type=capture_type
         self.description=description
 
-
 class Coordonnates(Base):
     __tablename__='coordonnates'
     id = Column(Integer, primary_key=True)
     lat=Column(String(50))
     long=Column(String(50))
     alt=Column(String(50))
-    moment=Column(Date,nullable=True)
+    speed = Column(String(50))
+    course=Column(String(50))
+    satellite=Column(String(50))
+    moment=Column(DateTime,nullable=True)
     site_id=Column(Integer,ForeignKey('sites.id'))
 
-    def __init__(self,lat,long,alt,moment):
+    def __init__(self,lat,long,alt,speed,course,satellite,moment):
         self.lat=lat
         self.long=long
         self.alt=alt
         self.moment=moment
+        self.satellite=satellite
+        self.speed=speed
+        self.course=course
 
 
 
