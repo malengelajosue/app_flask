@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><gpx version="1.1" creator="Josue MALENGELA - Elie KABUNDA" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+	<trk>
+		<trkseg>
+			<trkpt lat="-11.681117" lon="27.466295">
+				<ele>1238.1M</ele>
+				<time>2018-07-24 10:52:03.875768</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681117" lon="27.466295">
+				<ele>1238.1M</ele>
+				<time>2018-07-24 10:52:05.957459</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+		</trkseg>
+	</trk>
+</gpx>

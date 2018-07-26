@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><gpx version="1.1" creator="Josue MALENGELA - Elie KABUNDA" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+	<trk>
+		<trkseg>
+			<trkpt lat="-11.681113" lon="27.466298">
+				<ele>1238.0</ele>
+				<time>2018-07-24 10:53:51.172097</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681117" lon="27.4663">
+				<ele>1238.0</ele>
+				<time>2018-07-24 10:53:55.690919</time>
+				<extensions>
+					<speed>0.36</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681118" lon="27.466298">
+				<ele>1238.0</ele>
+				<time>2018-07-24 10:53:57.199868</time>
+				<extensions>
+					<speed>0.13</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681115" lon="27.466302">
+				<ele>1238.6</ele>
+				<time>2018-07-24 10:54:06.243483</time>
+				<extensions>
+					<speed>0.22</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681113" lon="27.466305">
+				<ele>1238.5</ele>
+				<time>2018-07-24 10:54:12.266832</time>
+				<extensions>
+					<speed>0.17</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681105" lon="27.466317">
+				<ele>1238.1</ele>
+				<time>2018-07-24 10:54:18.296699</time>
+				<extensions>
+					<speed>0.15</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681097" lon="27.466323">
+				<ele>1237.9</ele>
+				<time>2018-07-24 10:54:24.320310</time>
+				<extensions>
+					<speed>0.43</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681097" lon="27.466332">
+				<ele>1237.7</ele>
+				<time>2018-07-24 10:54:34.870638</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681097" lon="27.466332">
+				<ele>1237.7</ele>
+				<time>2018-07-24 10:54:39.391496</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681097" lon="27.466332">
+				<ele>1237.7</ele>
+				<time>2018-07-24 10:54:40.900658</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681097" lon="27.466332">
+				<ele>1237.7</ele>
+				<time>2018-07-24 10:54:49.946591</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.681097" lon="27.466332">
+				<ele>1237.7</ele>
+				<time>2018-07-24 10:54:54.470139</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+		</trkseg>
+	</trk>
+</gpx>

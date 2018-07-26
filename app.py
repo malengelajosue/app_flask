@@ -5,14 +5,16 @@ from flask import Flask, render_template, Response,send_from_directory
 from sqlalchemy import desc
 
 from camera_opencv import Camera
-from  datetime import date
+
 from models.model import  Sites
-from models.model import Coordonnates
+from myclasses.gpx import get_gpx
 from models.db_connection  import Session,engine,Base
 path= os.path.dirname(os.path.abspath(__file__))
-path=os.path.join(path,'files/gpx')
-DIRECTORY='TEST'
+path=os.path.join(path,'files/gpx/')
+DIRECTORY=path
+
 app = Flask(__name__)
+app.debug=True
 
 @app.route('/')
 def index():
@@ -50,10 +52,11 @@ def sites():
     sites=session.query(Sites).order_by(desc(Sites.id))
 
     return render_template('timeline.html',sites=sites)
-@app.route("download/<id:id>")
-def download_file(id):
+@app.route("/download/<id>")
+def download_files(id):
     """Download files"""
-    return send_from_directory(DIRECTORY,id,as_attachement=True)
+    print("-----------------------------------------------------------------------------------"+get_gpx(id))
+    return send_from_directory(DIRECTORY,get_gpx(id),as_attachment=True)
 
 
 if __name__ == '__main__':
