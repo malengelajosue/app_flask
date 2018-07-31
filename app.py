@@ -27,11 +27,11 @@ def home():
 @app.route('/map')
 def map():
     """Video streaming home page."""
-    return render_template('index.html')
+    return render_template('map.html')
 @app.route('/control')
 def control():
     """Video streaming home page."""
-    return render_template('index.html')
+    return render_template('control.html')
 
 def gen(camera):
     """Video streaming generator function."""
