@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Startuppage</title>
+
+        <link rel="stylesheet" href="{{ url_for('static' ,filename='build/css/reset.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static' ,filename='build/css/style.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='build/css/normalize.css')}}">
+
+
+
+    </head>
+
+    <body>
+
+        <div  class='brand'  >
+            <h1 class='hbrand'><strong>CARTO</strong>&nbsp;drone</h1>
+        </div>
+        <!-- multistep form -->
+        <form id="msform">
+
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">Test</li>
+                <li>Profile</li>
+                <li>Finalisation</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Test de connectivite</h2>
+                <h3 class="fs-subtitle">Etape 1</h3>
+                <hr class="hr_up">
+                <table>
+                    <tr>
+                        <td style=" text-align: left"><label for="gps_usb_port"> Drone: &nbsp;</label></td>
+                        <td style="width: 70px"> 
+                            <input type="text" placeholder="Adresse IP" class="txt_ip_address"/>:
+                            <input type="text" placeholder="Port" class="txt_port"/></td>
+
+                        <td>Connected</td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: left"><label for="gps_usb_port"> GPS: &nbsp;</label></td>
+                        <td > <select name="gps_usb_port" class="txt_element">
+
+                                <option value="">Port usb 1</option>
+                                <option value="">Port usb 2</option>
+                            </select></td>
+                        <td style="text-align: right">Connected</td>
+                    </tr>
+                    <tr style=" text-align: left">
+                        <td><label for="gps_usb_port"> GPS: &nbsp;</label></td>
+                        <td> <select name="gps_usb_port" class="txt_element">
+
+                                <option value="">Port usb 1</option>
+                                <option value="">Port usb 2</option>
+                            </select></td>
+                        <td style="text-align: right">Connected</td>
+                    </tr>
+                    <tr style=" text-align: left">
+                        <td><label for="gps_usb_port">Multiwii: &nbsp;</label></td>
+                        <td> <select name="gps_usb_port" class="txt_element">
+                                <option value="">Connection GPS</option>
+                                <option value="">Port usb 1</option>
+                                <option value="">Port usb 2</option>
+                            </select></td>
+                        <td style="text-align: right">Connected</td>
+                    </tr>
+                   
+
+                </table>
+
+                <hr class="hr_bottom">
+                <input type="button" name="next" class="next action-button-test" value="Tester" />
+                <input type="button" name="next" class="next action-button" value="Suivant" />
+                
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Profile</h2>
+                   <h3 class="fs-subtitle">Etape 2</h3>
+                <h3 class="fs-subtitle">Tapez votre nom et un petit commentaire</h3>
+                <hr class=" hr_up">
+
+                <input type="text" name="name" placeholder="nom" class="txt_profile"/><br/>
+                <textarea name="address" placeholder="Commentaire" class="txt_profile"></textarea>
+                <hr class="hr_bottom">
+                <input type="button" name="previous" class="previous action-button_back" value="precedent" />
+                <input type="button" name="next" class="next action-button" value="Suivant" />
+            </fieldset>
+            <fieldset onload="access_code()">
+                <h2 class="fs-title">Finalisation </h2>
+                       <h3 class="fs-subtitle">Etape 3</h3>
+                    <h3 class="fs-subtitle">Finalisation de la configuration</h3>
+                    <hr class="hr_up">
+                    <h1 class="access-code" id='hcode'>Code d'accès : 3252</h1>
+                    <hr class="hr_bottom">
+                    <input type="button" name="previous" class="previous action-button_back" value="precedent" />
+                    <input type="submit" name="submit" class="submit action-button" value="Suivant" />
+                    <input type="button" name="finish" class="next action-button" value="Terminer" />
+            </fieldset>
+        </form>
+        <script src="{{url_for('static',filename='build/js/jquery.min.js')}}"></script>
+        <script src="{{ url_for('static',filename='build/js/jquery.easing.min.js')}}"></script>
+         <script  src="{{url_for('static',filename='build/js/index.js')}}"></script>
+
+
+
+
+    </body>
+
+</html>

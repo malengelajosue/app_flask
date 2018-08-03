@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Lockpage</title>
+
+        <link rel="stylesheet" href="css/reset.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+
+
+    </head>
+
+    <body>
+
+        <!-- multistep form -->
+        <form id="msform">
+            <!-- progressbar -->
+
+
+            <fieldset>
+                <h2 class="fs-title">Code de securite</h2>
+
+                <hr class=" hr_up">
+                <div >
+                    <img class='img_lock' src='img/lock_img.jpg'>
+                </div>
+                <div>
+                    <input type="text" name="name" placeholder="CODE D'ACCES" class="txt_lock"/>
+                    <span><input type="button" name="previous" class="validate_code" value="Valider" /><span/>
+
+                </div>
+
+            
+                
+            </fieldset>
+
+        </form>
+        <script src='js/jquery.min.js'></script>
+        <script src='js/jquery.easing.min.js'></script>
+
+
+
+        <script  src="js/index.js"></script>
+
+
+        <script >
+            var balise = $('#hcode');
+            function access_code() {
+                balise.html('876543').show(453);
+            }
+        </script>
+
+    </body>
+
+</html>

@@ -19,7 +19,7 @@ app.debug=True
 @app.route('/')
 def index():
     """Video streaming home page."""
-    return render_template('index.html')
+    return render_template('startup_page.html')
 @app.route('/home')
 def home():
     """Video streaming home page."""
@@ -32,7 +32,10 @@ def map():
 def control():
     """Video streaming home page."""
     return render_template('control.html')
-
+@app.route('/test')
+def test1():
+    """Video streaming home page."""
+    return render_template('show.html')
 def gen(camera):
     """Video streaming generator function."""
     while True:
