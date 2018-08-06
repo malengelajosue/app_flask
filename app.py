@@ -2,7 +2,7 @@
 import os
 
 from flask import Flask, render_template, Response,send_from_directory
-from sqlalchemy import desc
+from sqlalchemy import desc,or_
 
 from camera_opencv import Camera
 
@@ -62,10 +62,10 @@ def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
-@app.route('/sites')
-def sites():
+@app.route('/sites/<field>')
+def sites(field):
     session=Session()
-    sites=session.query(Sites).order_by(desc(Sites.id))
+    sites=session.query(Sites).filter(or_(Sites.name.like('%Site%'))).order_by(desc(Sites.id))
 
     return render_template('timeline.html',sites=sites)
 @app.route("/download/<id>")
