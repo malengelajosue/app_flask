@@ -15,6 +15,14 @@ DIRECTORY=path
 
 app = Flask(__name__)
 app.debug=True
+#les routes utilisees par ajax
+@app.route('/getdata_timeline')
+def getdata_timeline():
+    """Video streaming home page."""
+    session = Session()
+    sites = session.query(Sites).order_by(desc(Sites.id))
+
+    return render_template('data.html',sites=sites)
 
 @app.route('/')
 def index():
@@ -24,6 +32,11 @@ def index():
 def home():
     """Video streaming home page."""
     return render_template('index.html')
+
+@app.route('/carto')
+def carto():
+    """Video streaming home page."""
+    return render_template('layouts/base.html')
 @app.route('/map')
 def map():
     """Video streaming home page."""
