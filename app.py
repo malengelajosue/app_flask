@@ -64,8 +64,10 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 @app.route('/sites/<field>')
 def sites(field):
+
+    field="%"+field + "%"
     session=Session()
-    sites=session.query(Sites).filter(or_(Sites.name.like('%Site%'))).order_by(desc(Sites.id))
+    sites=session.query(Sites).filter(or_(Sites.name.ilike(field),Sites.description.ilike(field)))
 
     return render_template('timeline.html',sites=sites)
 @app.route("/download/<id>")
