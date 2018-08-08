@@ -1,61 +1,80 @@
-{% extends 'layouts/base.html' %}
-{% block container %}
-    <div class="right_col" role="main" style="min-height: 780px;">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Representation des donnees</h3>
-              </div>
+{%extends 'layouts/base.html'%}
+{%block content%}
+<style>
+    #cbx_select_site{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 70%;
+        border-radius: 20px;
+          /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map_representation {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+</style>
+<div class="clearfix"></div>
 
-              <div class="title_right">
-                
-                  <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control">
-                            <option>Choose option</option>
-                            <option>Option one</option>
-                            <option>Option two</option>
-                            <option>Option three</option>
-                            <option>Option four</option>
-                          </select>
-                        </div>
-                  
-                </div>
-              </div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Representation des donnees</h2>
+                <select class="form-control" id="cbx_select_site">
+                    <option>Site 1</option>
+                    <option>Site 1</option>
+                    <option>Site 1</option>
+                </select>
+              
+                <div class="clearfix"></div>
             </div>
-
-            <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Plain Page</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                      <div class="map2">
-                      	
-                      </div>
-                  </div>
+            <div class="x_content">
+                <div id="map_representation">
+                    
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-{% endblock %}
+    </div>
+</div>
+
+
+   
+
+    <script>
+
+      // This example creates a simple polygon representing the Bermuda Triangle.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map_representation'), {
+          zoom: 5,
+          center: {lat: 24.886, lng: -70.268},
+          mapTypeId: 'terrain'
+        });
+
+        // Define the LatLng coordinates for the polygon's path.
+        var triangleCoords = [
+          {lat: 25.774, lng: -80.190},
+          {lat: 18.466, lng: -66.118},
+          {lat: 32.321, lng: -64.757},
+          {lat: 25.774, lng: -80.190}
+        ];
+
+        // Construct the polygon.
+        var bermudaTriangle = new google.maps.Polygon({
+          paths: triangleCoords,
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FF0000',
+          fillOpacity: 0.35
+        });
+        bermudaTriangle.setMap(map);
+      }
+      {% endblock%}

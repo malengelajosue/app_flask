@@ -5,7 +5,7 @@
     <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-left top_search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Rechercher" id="timeline_txt_search">
+                <input type="text" class="form-control" placeholder="Rechercher" id="timelinetxtsearch">
                 <span class="input-group-btn">
                     <button class="btn btn-default"  type="button">Rechercher</button>
                 </span>
@@ -126,4 +126,12 @@
 
 
 
+<script>
 
+   
+     $("#timelinetxtsearch").keyup(function(){
+         var valeur=$(this).val();
+         getSitePage(valeur);
+      
+   });
+</script>

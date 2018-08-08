@@ -65,7 +65,7 @@ def video_feed():
 @app.route('/sites/<field>')
 def sites(field):
 
-    field="%"+field + "%"
+    field=""+field + ""
     session=Session()
     sites=session.query(Sites).filter(or_(Sites.name.ilike(field),Sites.description.ilike(field)))
 
