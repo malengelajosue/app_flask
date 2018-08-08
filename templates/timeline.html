@@ -16,6 +16,7 @@
 <div class="x_panel">
     <div class="x_title">
         <h2>Historique des  prélèvements <small></small></h2>
+        <button  class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="trigger_my_modal">Modal</button>
         <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -124,14 +125,88 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog mymodal " >
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body" id="modal_map">
+
+            </div>
+            <div class="modal-footer">
+                <div class="pull-left">
+                    <ul>
+                        <li id="polygone_area">Polygone area:</li>
+                        <li id="polygone_line">Polygone line:</li>
+                        <li id="polygone_length">Polyline length:</li>
+
+                    </ul>
+
+                </div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <script>
+    var map, drawingManager;
 
-   
-     $("#timelinetxtsearch").keyup(function(){
-         var valeur=$(this).val();
-         getSitePage(valeur);
-      
-   });
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('modal_map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+
+        drawingManager = new google.maps.drawing.DrawingManager({
+            drawingMode: google.maps.drawing.OverlayType.MARKER,
+            drawingControl: true,
+            drawingControlOptions: {
+                position: google.maps.ControlPosition.TOP_CENTER,
+                drawingModes: ['marker', 'circle', 'polygon', 'polyline', 'rectangle']
+            },
+            markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+            circleOptions: {
+                fillColor: '#ffff00',
+                fillOpacity: 1,
+                strokeWeight: 5,
+                clickable: false,
+                editable: true,
+                zIndex: 1
+            }
+        });
+        google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
+            var path = polygon.getPath();
+            var area = google.maps.geometry.spherical.computeArea(path);
+            var length = google.maps.geometry.spherical.computeLength(path);
+            $('#polygone_area').html(area / 1000000 + ' kmsqs');
+            $('#polygone_line').html(length / 1000 + 'kms');
+     
+        });
+        google.maps.event.addListener(drawingManager, 'polylinecomplete', function (polyline) {
+            var path = polyline.getPath();
+            var length = google.maps.geometry.spherical.computeLength(path);
+            $('#polygone_length').html(length / 1000 + 'kms');
+           
+        });
+
+        drawingManager.setMap(map);
+
+
+    }
+
+
+
+
+
+    $("#trigger_my_modal").click(function () {
+        initMap();
+    });
 </script>
+

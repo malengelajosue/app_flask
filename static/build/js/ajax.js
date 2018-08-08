@@ -59,10 +59,8 @@ $(document).ready(function(){
         });
     }
     function getSitePage(param){
-        var img;
-       
-     var img="<img src="+"{{ url_for('static', filename='img/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
-        containt_zone.html(img);
+ 
+        containt_zone.html("<img src='{{ url_for('static', filename='img/loading.gif') }}'  >");
         var url="/sites/"+param;
         $.get(url,function(data){
            
