@@ -279,3 +279,24 @@ body {
     width: 90%;
     margin-left: 7%;
 }
+
+/*// le timer*/
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+	@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+/*decoration de la partie de calcul de la surface.*/
+.computeSurface li{
+    list-style: none;
+}

@@ -9,10 +9,12 @@
 $(document).ready(function () {
     $('.ui-pnotify').remove();
     var map;
+    var timer=new Timer();
+    
     var lat, long, alt, tm, speed, sat, course, marker, ws, infowindow;
-    var siteName, captureType, comment, btnCaptureModal, txtComment, 
-    cbxCaptureType, txtSiteName, btnStopCaptureModal, chkbox, 
-    persitInterval, btnLaunchModal,btnFullScreen;
+    var siteName, captureType, comment, btnCaptureModal, txtComment,
+            cbxCaptureType, txtSiteName, btnStopCaptureModal, chkbox,
+            persitInterval, btnLaunchModal, btnFullScreen;
     var myLongitude, myLatitude;
     //Enregisrement
     var messageToSendPersist, persistNow = false, stopPersistNow = false;
@@ -21,6 +23,9 @@ $(document).ready(function () {
     myAltitude = '1325.8M';
     initialise = false;
     marker = null;
+    //Cacher le chrono
+    $('.values').hide();
+    //Information sur la position
     function makeInfo() {
         var contentString = '<div id="content">' +
                 '<div id="siteNotice">' +
@@ -37,7 +42,7 @@ $(document).ready(function () {
         infowindow = new google.maps.InfoWindow({
             content: contentString
         });
-        
+
     }
     function makeMarker() {
         if (marker === null) {
@@ -102,9 +107,11 @@ $(document).ready(function () {
         }
         ));
 //make marker
-       
+
     }
     ;
+    
+    
 
 //url of websocket server
 
@@ -139,13 +146,13 @@ $(document).ready(function () {
         var data = evt.data;
         console.log('message recu: ' + data);
         data = JSON.parse(data);
-        if (!isNaN( parseFloat(data.Long))) {
-            myLongitude =  parseFloat(data.Long);
+        if (!isNaN(parseFloat(data.Long))) {
+            myLongitude = parseFloat(data.Long);
         }
         if (!isNaN(parseFloat(data.Lat))) {
             myLatitude = parseFloat(data.Lat);
         }
-        
+
         lat = $('#lat');
         long = $('#long');
         alt = $('#alt');
@@ -164,30 +171,30 @@ $(document).ready(function () {
 
     };
     //fonctions
-   function toggleFullScreen(elem) {
-    // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-    if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
-        if (elem.requestFullScreen) {
-            elem.requestFullScreen();
-        } else if (elem.mozRequestFullScreen) {
-            elem.mozRequestFullScreen();
-        } else if (elem.webkitRequestFullScreen) {
-            elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-        } else if (elem.msRequestFullscreen) {
-            elem.msRequestFullscreen();
-        }
-    } else {
-        if (document.cancelFullScreen) {
-            document.cancelFullScreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitCancelFullScreen) {
-            document.webkitCancelFullScreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
+    function toggleFullScreen(elem) {
+        // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+        if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
+            if (elem.requestFullScreen) {
+                elem.requestFullScreen();
+            } else if (elem.mozRequestFullScreen) {
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullScreen) {
+                elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        } else {
+            if (document.cancelFullScreen) {
+                document.cancelFullScreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
         }
     }
-}
     function getData() {
 
         msg = {'action': 'get_position'};
@@ -222,14 +229,13 @@ $(document).ready(function () {
             ws.send(msg);
         }
 
-        if (map===undefined) {
+        if (map === undefined) {
             initMap();
             map.setCenter({lat: myLatitude, lng: myLongitude});
-        }
-        else{
+        } else {
             map.setCenter({lat: myLatitude, lng: myLongitude});
         }
-        
+
 
         var myCity = new google.maps.Circle({
             center: {lat: myLatitude, lng: myLongitude},
@@ -241,13 +247,13 @@ $(document).ready(function () {
             fillOpacity: 0.4
         });
         myCity.setMap(map);
-        
-         makeMarker();
+
+        makeMarker();
         //Events
 
         google.maps.event.addListener(marker, 'click', function () {
             makeMarker();
-            
+
         });
 
     }
@@ -266,25 +272,28 @@ $(document).ready(function () {
     btnCaptureModal = $('#btnCaptureModal');
     btnLaunchModal = $('#btnLaunchModal');
     btnStopCaptureModal = $('#btnStopCaptureModal');
-    btnFullScreen=$('#btnFullScreen');
-    chkbox=$('#chkbox');
+    btnFullScreen = $('#btnFullScreen');
+    chkbox = $('#chkbox');
     btnStopCaptureModal.hide();
     cbxCaptureType = $('#cbxCaptureType');
     txtSiteName = $('#txtSiteName');
     txtComment = $('#txtComment');
-    chkbox.on('click',function(){
+    chkbox.on('click', function () {
         if ($(this).is(':checked')) {
             console.log('video on');
-            $('#imgtag').attr('src',"/video_feed')").load();
-        }else{
-           $('#imgtag').attr('src',"img/video_loading2.gif' )").load();
+            $('#imgtag').attr('src', "/video_feed')").load();
+        } else {
+            $('#imgtag').attr('src', "img/video_loading2.gif' )").load();
             console.log('video off');
         }
     });
-    btnFullScreen.on('click',function(){
+    btnFullScreen.on('click', function () {
         toggleFullScreen(document.body);
     });
-    btnCaptureModal.on('click', function () {
+
+    
+    $('#btnCaptureModal').click(function () {
+       
         siteName = txtSiteName.val();
         captureType = cbxCaptureType.val();
         comment = txtComment.val();
@@ -297,6 +306,9 @@ $(document).ready(function () {
         btnStopCaptureModal.show();
         persistNow = true;
         console.log(messageToSendPersist);
+        timer.start({precision: 'secondTenths'});
+        $('.timer_values').removeClass('blink');
+        $('.timer_values').show();
 
 
     });
@@ -305,10 +317,24 @@ $(document).ready(function () {
         // clearInterval(persitInterval);
 
         stopPersistNow = true;
-
+          timer.stop();
+         $('.timer_values').css('color','green');
+        $('.timer_values').addClass('blink');
         $(this).hide();
         btnLaunchModal.show();
 
 
     });
+    
+    $('.tag').click(function(){
+        alert('la valeur: ');
+    });
+    
+    //    Ecoute du timer 
+    timer.addEventListener('secondTenthsUpdated', function (e) {
+        $('.timer_values').html(timer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']));
+    });
+    
+    
+    
 });

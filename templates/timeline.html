@@ -16,22 +16,8 @@
 <div class="x_panel">
     <div class="x_title">
         <h2>Historique des  prélèvements <small></small></h2>
-        <button  class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="trigger_my_modal">Modal</button>
-        <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Settings 1</a>
-                    </li>
-                    <li><a href="#">Settings 2</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-        </ul>
+        <button  class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#myModal" id="trigger_my_modal"><i class="fa fa-map"></i> &nbsp;Carte</button>
+       
         <div class="clearfix"></div>
     </div>
     <div class="x_content" id="dataZone_timeline">
@@ -41,7 +27,7 @@
             <li>
                 <div class="block">
                     <div class="tags">
-                        <a href="" class="tag">
+                        <a href="#" class="tag data_view" id="{{s.id}}">
                             <span>Apercu <i class="fa fa-eye"></i></span>
                         </a>
                     </div>
@@ -133,20 +119,42 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Apercu global des informations</h4>
+                <select class="form-control" style="width: 40%; margin-left: auto;margin-right: auto; display: block; border-radius: 20px">
+                    {% for s in sites%}
+                    
+                    <option value="{{s.id}}">{{s.name}}</option>
+                   
+                    {% endfor %}
+                </select>
             </div>
             <div class="modal-body" id="modal_map">
 
             </div>
             <div class="modal-footer">
                 <div class="pull-left">
-                    <ul>
-                        <li id="polygone_area">Polygone area:</li>
-                        <li id="polygone_line">Polygone line:</li>
-                        <li id="polygone_length">Polyline length:</li>
+                    <table>
+                        <tr>
+                            <th>Mesure de la surface:&nbsp;</th>
+                            <td id="polygone_area">N/A</td>
+                          
+                        </tr>
+                        
+                        <tr>
+                            <th>Longueur du contour ligne:&nbsp; </th>
+                            <td id="polygone_line">N/A</td>
+                          
+                        </tr>
+                        
+                        <tr>
+                            <th>Longueur de ligne:&nbsp; </th>
+                            <td id="polygone_length">N/A</td>
+                          
+                        </tr>
+                        
 
-                    </ul>
-
+                    </table>
+                   
                 </div>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -158,7 +166,7 @@
 <script>
     var map, drawingManager;
 
-    function initMap() {
+    function initMap_timeline() {
         map = new google.maps.Map(document.getElementById('modal_map'), {
             center: {lat: -34.397, lng: 150.644},
             zoom: 8
@@ -206,7 +214,7 @@
 
 
     $("#trigger_my_modal").click(function () {
-        initMap();
+        initMap_timeline();
     });
 </script>
 

@@ -130,6 +130,11 @@
                             <div  id="map"  style="height: 480px; position: relative; overflow: hidden;">
                             </div>
                             <hr>
+                            <div class="pull-left">
+                                <div id="secondTenthsExample">
+                                    <div  style="font-size: x-large;"><b class="timer_values">00.00.00.00</b></div>
+                                </div>
+                            </div>
                             <div class="form-group pull-right">
 
                                 <button type="button" class="btn btn-success" id="btnLaunchModal" data-toggle="modal" data-target=".bs-example-modal-sm">Capturer <i class="fa fa-caret-square-o-right"></i></button>
@@ -164,9 +169,10 @@
                                         <label for="data_type">Type de prelevement:</label>
                                         <div  >
                                             <select id='cbxCaptureType' name='data_type' class="form-control">
+                                                 <option value='2'>Polygonal</option>
                                                 <option value='1'>Ponctuel</option>
 
-                                                <option value='2'>Polygonal</option>
+                                               
                                             </select>
                                         </div>
                                         <div>
@@ -175,7 +181,9 @@
                                         </div>
                                     </form>
                                 </div>
+
                                 <div class="modal-footer">
+
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                                     <button type="button" class="btn btn-success" id='btnCaptureModal'>Commencer la capture</button>
                                 </div>
@@ -213,6 +221,7 @@
 
         <!-- Custom Theme Scripts -->
         <script src="{{ url_for('static',filename= 'build/js/custom.min.js' ) }} "></script>
+        <script src="{{ url_for('static',filename= 'build/js/easytimer.min.js' ) }} "></script>
         <script src="{{ url_for('static',filename= 'build/js/ajax.js' ) }} "></script>
         <script src="{{ url_for('static',filename= 'build/js/pnotify.js')  }} "></script>
         <script src="{{ url_for('static',filename= 'build/js/switchery.min.js')  }} "></script>
