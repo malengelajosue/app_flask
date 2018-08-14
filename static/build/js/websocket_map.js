@@ -80,7 +80,7 @@ $(document).ready(function () {
             },
             scaleControl: true,
             rotateControl: true,
-            streetViewControl: true,
+            streetViewControl: true
         };
         //Getting map DOM element
         var mapElement = document.getElementById('map');

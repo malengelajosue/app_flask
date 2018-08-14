@@ -17,7 +17,7 @@
     <div class="x_title">
         <h2>Historique des  prélèvements <small></small></h2>
         <button  class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#myModal" id="trigger_my_modal"><i class="fa fa-map"></i> &nbsp;Carte</button>
-       
+
         <div class="clearfix"></div>
     </div>
     <div class="x_content" id="dataZone_timeline">
@@ -122,9 +122,9 @@
                 <h4 class="modal-title">Apercu global des informations</h4>
                 <select class="form-control" style="width: 40%; margin-left: auto;margin-right: auto; display: block; border-radius: 20px">
                     {% for s in sites%}
-                    
+
                     <option value="{{s.id}}">{{s.name}}</option>
-                   
+
                     {% endfor %}
                 </select>
             </div>
@@ -135,26 +135,26 @@
                 <div class="pull-left">
                     <table>
                         <tr>
-                            <th>Mesure de la surface:&nbsp;</th>
+                            <th>Surface:&nbsp;</th>
                             <td id="polygone_area">N/A</td>
-                          
+
                         </tr>
-                        
+
                         <tr>
-                            <th>Longueur du contour ligne:&nbsp; </th>
+                            <th>Perimetre:&nbsp; </th>
                             <td id="polygone_line">N/A</td>
-                          
+
                         </tr>
-                        
+
                         <tr>
                             <th>Longueur de ligne:&nbsp; </th>
                             <td id="polygone_length">N/A</td>
-                          
+
                         </tr>
-                        
+
 
                     </table>
-                   
+
                 </div>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -163,58 +163,5 @@
     </div>
 </div>
 
-<script>
-    var map, drawingManager;
-
-    function initMap_timeline() {
-        map = new google.maps.Map(document.getElementById('modal_map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
-        });
-
-        drawingManager = new google.maps.drawing.DrawingManager({
-            drawingMode: google.maps.drawing.OverlayType.MARKER,
-            drawingControl: true,
-            drawingControlOptions: {
-                position: google.maps.ControlPosition.TOP_CENTER,
-                drawingModes: ['marker', 'circle', 'polygon', 'polyline', 'rectangle']
-            },
-            markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
-            circleOptions: {
-                fillColor: '#ffff00',
-                fillOpacity: 1,
-                strokeWeight: 5,
-                clickable: false,
-                editable: true,
-                zIndex: 1
-            }
-        });
-        google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
-            var path = polygon.getPath();
-            var area = google.maps.geometry.spherical.computeArea(path);
-            var length = google.maps.geometry.spherical.computeLength(path);
-            $('#polygone_area').html(area / 1000000 + ' kmsqs');
-            $('#polygone_line').html(length / 1000 + 'kms');
-     
-        });
-        google.maps.event.addListener(drawingManager, 'polylinecomplete', function (polyline) {
-            var path = polyline.getPath();
-            var length = google.maps.geometry.spherical.computeLength(path);
-            $('#polygone_length').html(length / 1000 + 'kms');
-           
-        });
-
-        drawingManager.setMap(map);
-
-
-    }
-
-
-
-
-
-    $("#trigger_my_modal").click(function () {
-        initMap_timeline();
-    });
-</script>
+<script src="{{url_for('static',filename='build/js/map_show.js')}}"> </script>
 
