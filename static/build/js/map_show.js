@@ -1,5 +1,5 @@
 var map, drawingManager;
-
+var triangleCoords;
 function initMap_timeline() {
     //les variables 
 
@@ -93,12 +93,7 @@ function initMap_timeline() {
     });
 /// les fonction de dessin sur la carte
 // Define the LatLng coordinates for the polygon's path.
-        var triangleCoords = [
-          {lat: -11.673898, lng: 27.478447},
-          {lat: -20.673898, lng: 28.5675},
-          {lat: -10.321, lng: 29.9898},
-          {lat: -11.673898, lng: 27.478447}
-        ];
+        triangleCoords = [];
 
         // Construct the polygon.
         var bermudaTriangle = new google.maps.Polygon({
@@ -154,11 +149,27 @@ function initMap_timeline() {
 }
 
 
-
+ function getMessage(){
+        var img;
+     var img="<img src="+"{{ url_for('static', filename='img/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
+        //dataZone_timeline.html(img);
+        var url="/get_trace_information/9";
+        $.get(url,function(data){
+           
+            for (var i = 1; i < data.length; i++) {
+            triangleCoords.append({'lat':data.lat,'lng':data.long});
+        }
+            
+        });
+        
+        console.log(triangleCoords);
+    }
 
 
 $("#trigger_my_modal").click(function () {
-
-    initMap_timeline();
+    
+    getMessage();
+    //initMap_timeline();
+    
 
 });

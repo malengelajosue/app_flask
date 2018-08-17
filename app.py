@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 import os
+import sqlalchemy
 
-from flask import Flask, render_template, Response,send_from_directory
+from flask import Flask, render_template, Response, send_from_directory, jsonify
 from sqlalchemy import desc,or_
 
 from camera_opencv import Camera
-
+from models.get_data import get_data
 from models.model import  Sites
 from myclasses.gpx import get_gpx
 from models.db_connection  import Session,engine,Base
@@ -15,6 +16,10 @@ DIRECTORY=path
 
 app = Flask(__name__)
 app.debug=True
+
+#fonction de recuperation des donnees
+
+
 #les routes utilisees par ajax
 @app.route('/getdata_timeline')
 def getdata_timeline():
@@ -37,6 +42,16 @@ def home():
 def carto():
 
     return render_template('layouts/base.html')
+
+@app.route('/get_trace_information/<id>')
+def get_trace_information(id):
+    data=''
+    try:
+        data=get_data(id)
+    except sqlalchemy.exc.ProgrammingError:
+        print("probleme d'acquisition des donnees")
+
+    return jsonify(data)
 @app.route('/map')
 def map():
 
