@@ -26,28 +26,28 @@ def getdata_timeline():
 
 @app.route('/')
 def index():
-    """Video streaming home page."""
+
     return render_template('startup_page.html')
 @app.route('/home')
 def home():
-    """Video streaming home page."""
+
     return render_template('index.html')
 
 @app.route('/carto')
 def carto():
-    """Video streaming home page."""
+
     return render_template('layouts/base.html')
 @app.route('/map')
 def map():
-    """Video streaming home page."""
+
     return render_template('map.html')
 @app.route('/control')
 def control():
-    """Video streaming home page."""
+
     return render_template('control.html')
 @app.route('/test')
 def test1():
-    """Video streaming home page."""
+
     return render_template('show.html')
 def gen(camera):
     """Video streaming generator function."""
@@ -67,7 +67,7 @@ def sites(field):
 
     field=""+field + ""
     session=Session()
-    sites=session.query(Sites).filter(or_(Sites.name.ilike(field),Sites.description.ilike(field)))
+    sites=session.query(Sites).filter(or_(Sites.name.ilike(field),Sites.description.ilike(field))).order_by(desc(Sites.id))
 
     return render_template('timeline.html',sites=sites)
 @app.route("/download/<id>")
