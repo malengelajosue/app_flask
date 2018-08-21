@@ -6,7 +6,7 @@ from flask import Flask, render_template, Response, send_from_directory, jsonify
 from sqlalchemy import desc,or_
 
 from camera_opencv import Camera
-from models.get_data import get_data
+from models.get_data import Details
 from models.model import  Sites
 from myclasses.gpx import get_gpx
 from models.db_connection  import Session,engine,Base
@@ -45,13 +45,11 @@ def carto():
 
 @app.route('/get_trace_information/<id>')
 def get_trace_information(id):
-    data=''
-    try:
-        data=get_data(id)
-    except sqlalchemy.exc.ProgrammingError:
-        print("probleme d'acquisition des donnees")
+    data=Details()
+    retour=data.get_details(id)
+    print(retour)
+    return jsonify(retour)
 
-    return jsonify(data)
 @app.route('/map')
 def map():
 

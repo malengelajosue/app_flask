@@ -1,5 +1,8 @@
+
+
 var map, drawingManager;
-var triangleCoords;
+
+
 function initMap_timeline() {
     //les variables 
 
@@ -71,15 +74,15 @@ function initMap_timeline() {
         },
         polygonOptions: {
             draggable: true,
-            strokeColor:'blue',
-            strokeWeight:3,
-            fillColor:'yellow',
-            fillOpacity:0.2
-            
+            strokeColor: 'blue',
+            strokeWeight: 3,
+            fillColor: 'yellow',
+            fillOpacity: 0.2
+
         },
-        polylineOptions:{
-            strokeColor:'red',
-            strokeWeight:3
+        polylineOptions: {
+            strokeColor: 'red',
+            strokeWeight: 3
         },
         markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
         circleOptions: {
@@ -93,18 +96,43 @@ function initMap_timeline() {
     });
 /// les fonction de dessin sur la carte
 // Define the LatLng coordinates for the polygon's path.
-        triangleCoords = [];
 
-        // Construct the polygon.
-        var bermudaTriangle = new google.maps.Polygon({
-          paths: triangleCoords,
-          strokeColor: '#FF0000',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#FF0000',
-          fillOpacity: 0.35
-        });
-        bermudaTriangle.setMap(map);
+var triangleCoords;
+triangleCoords=[];
+function getMessage() {
+    var img;
+   
+
+    var img = "<img src=" + "{{ url_for('static', filename='img/loading.gif') }}" + "style='margin-left: auto;margin-right: auto; display: block'>";
+    //dataZone_timeline.html(img);
+    var url = "/get_trace_information/9";
+    $.get(url, function (data) {
+     
+    
+        
+        for (var i = 1; i < data.length; i++) {
+            triangleCoords[i]={'lat': data[i].lat, 'lng': data[i].lng};
+          
+        }
+        
+      
+
+    });
+
+}
+    getMessage();
+    // Construct the polygon.
+    var bermudaTriangle = new google.maps.Polygon({
+        paths: triangleCoords,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35
+    });
+    console.log("la latitude de "+triangleCoords[1].lat);
+    map.setCenter({lat: triangleCoords[1].lat, lng: triangleCoords[1].lng});
+    bermudaTriangle.setMap(map);
 
 
 ///les evenements sur la carte
@@ -149,27 +177,13 @@ function initMap_timeline() {
 }
 
 
- function getMessage(){
-        var img;
-     var img="<img src="+"{{ url_for('static', filename='img/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
-        //dataZone_timeline.html(img);
-        var url="/get_trace_information/9";
-        $.get(url,function(data){
-           
-            for (var i = 1; i < data.length; i++) {
-            triangleCoords.append({'lat':data.lat,'lng':data.long});
-        }
-            
-        });
-        
-        console.log(triangleCoords);
-    }
+
 
 
 $("#trigger_my_modal").click(function () {
+
     
-    getMessage();
-    //initMap_timeline();
-    
+    initMap_timeline();
+
 
 });
