@@ -2,22 +2,27 @@
 
 
 $(document).ready(function () {
-    var map, drawingManager, donnees;
+    var map, drawingManager, donnees, dataToshow;
     donnees = [];
+    dataToshow = false;
 
     function onFinish(i, data) {
-        donnees[i] = {'lat': data.lat, 'lng': data.lng};
+       
+    
+        var newData=JSON.parse(JSON.stringify(data));
+        
+        donnees.push(new google.maps.LatLng(newData.lat,newData.lng));
+     
     }
-    function getMessage() {
+    function getMessage(id) {
         var img;
-
-        var img = "<img src=" + "{{ url_for('static', filename='img/loading.gif') }}" + "style='margin-left: auto;margin-right: auto; display: block'>";
-        //dataZone_timeline.html(img);
-        var url = "/get_trace_information/9";
+        donnees = [];
+        var url = "/get_trace_information/" + id;
         $.get(url, function (data) {
             for (var i = 1; i < data.length; i++) {
 
-                onFinish(i, data);
+                //la fonction de callback
+                onFinish(i, data[i]);
 
             }
         });
@@ -48,7 +53,7 @@ $(document).ready(function () {
             mapTypeId: 'OSM',
             mapTypeControlOptions: {
                 mapTypeIds: mapTypeIds,
-               
+
             },
             scaleControl: true,
             rotateControl: true,
@@ -91,7 +96,7 @@ $(document).ready(function () {
             drawingControl: true,
             drawingControlOptions: {
                 position: google.maps.ControlPosition.TOP_CENTER,
-                drawingModes: ['marker', 'circle', 'polygon', 'polyline', 'rectangle']
+                drawingModes: ['marker', 'polygon', 'polyline']
             },
 
             polygonOptions: {
@@ -109,75 +114,75 @@ $(document).ready(function () {
             markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
             circleOptions: {
                 fillColor: '#ffff00',
-                fillOpacity: 1,
-                strokeWeight: 5,
+                fillOpacity: 0.3,
+                strokeWeight: 2,
                 clickable: false,
                 editable: true,
                 zIndex: 1
             }
         });
-          drawingManager.setMap(map);
 
 
-        // Construct the polygon.
-        var bermudaTriangle = new google.maps.Polygon({
-            paths: donnees,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
-
-        bermudaTriangle.setMap(map);
 
 
-///les evenements sur la carte
-        google.maps.event.addListener(drawingManager, 'polylinecomplete', function (polyline) {
-            var path = polyline.getPath();
-            var length = google.maps.geometry.spherical.computeLength(path);
-            $('#polygone_length').html(length / 1000 + 'kms');
+///les evenements sur les 
 
-        });
 
         google.maps.event.addListener(drawingManager, 'overlaycomplete',
                 function (evt) {
-                    if (evt.type === google.maps.drawing.OverlayType.POLYGON) {
-                        evt.overlay.setEditable(true);
-                        evt.overlay.setDraggable(true);
+                    if (evt.type === google.maps.drawing.OverlayType.POLYGON
+                            ) {
+                        evt.overlay.setEditable(false);
+                        evt.overlay.setDraggable(false);
 
                         var path = evt.overlay.getPath();
                         var area = google.maps.geometry.spherical.computeArea(path);
                         var length = google.maps.geometry.spherical.computeLength(path);
                         $('#polygone_area').html(area / 1000000 + ' Km<sup>2</sup>');
                         $('#polygone_line').html(length / 1000 + 'Km');
-                    }
-                });
-        google.maps.event.addListener(drawingManager, 'overlaychange',
-                function (evt) {
-                    if (evt.type === google.maps.drawing.OverlayType.POLYGON) {
-
-                        evt.overlay.setDraggable(true);
-
+                    } else if (evt.type === google.maps.drawing.OverlayType.POLYLINE) {
                         var path = evt.overlay.getPath();
-                        var area = google.maps.geometry.spherical.computeArea(path);
                         var length = google.maps.geometry.spherical.computeLength(path);
-                        $('#polygone_area').html(area / 1000000 + ' km sqs');
-                        $('#polygone_line').html(length / 1000 + 'kms');
+                        $('#polyline_length').html(length / 1000 + 'Km');
                     }
                 });
 
+        drawingManager.setMap(map);
+        //affuchage de la trace
+        if (dataToshow) {
 
 
 
+            var firstItem = donnees[1];
 
+            console.log('le centre  de la carte' + firstItem.lat);
+            console.log('la liste des donnees' + donnees + "la taille" + donnees.length);
+            
+            var marker = new google.maps.Marker({
+                position: firstItem,
+                title: "Hello World!",
+                map:map,
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                animation: google.maps.Animation.DROP,
+
+            });
+
+            map.setCenter(firstItem);
+            marker.setMap(map);
+            var polylineOptions = {
+                path: donnees,
+                strokeColor: "red",
+                strokeWeight: 2
+            };
+            var polyline = new google.maps.Polyline(polylineOptions);
+            polyline.setMap(map);
+
+        }
     }
     ;
-
-
-
+//evenement sur click du bouton map
     $("#trigger_my_modal").click(function () {
-        getMessage();
+        getMessage(9);
 
         setTimeout(
                 showDataOnMap
@@ -185,10 +190,19 @@ $(document).ready(function () {
 
 
     });
+//evenement sur la seclection de la liste 
+    $('#cbx_view_sites').change(function () {
+        var valeur = $(this).val();
+        getMessage(valeur);
+        setTimeout(
+                showDataOnMap
+                , 1000);
 
+    });
 
     function showDataOnMap() {
-        alert(donnees);
+
+        dataToshow = true;
         initMap_timeline();
 
     }

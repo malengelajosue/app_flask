@@ -120,7 +120,6 @@ class MyAppWebSocket(tornado.websocket.WebSocketHandler):
         _satellite=str(self.satellite)
 
         coord=Coordonnates(lat=_lat,long=_long,alt=_alt,moment=_moment,speed=_vitesse,course=_course,satellite=_satellite)
-
         self.mysite.coordonnates.append(coord)
 
 
