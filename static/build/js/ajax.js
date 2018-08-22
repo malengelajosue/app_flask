@@ -10,7 +10,7 @@ $(document).ready(function(){
     
     function getMessage(){
         var img;
-     var img="<img src="+"{{ url_for('static', filename='img/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
+     var img="<img src="+"{{ url_for('static', filename='images/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
         dataZone_timeline.html(img);
         var url="/getdata_timeline";
         $.get(url,function(data){
@@ -20,7 +20,7 @@ $(document).ready(function(){
     }
     function getMessage(){
         var img;
-     var img="<img src="+"{{ url_for('static', filename='img/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
+     var img="<img src="+"{{ url_for('static', filename='images/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
         dataZone_timeline.html(img);
         var url="/getdata_timeline";
         $.get(url,function(data){
@@ -30,7 +30,7 @@ $(document).ready(function(){
     }
     function getHomePage(){
         var img;
-     var img="<img src="+"{{ url_for('static', filename='img/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
+     var img="<img src="+"{{ url_for('static', filename='images/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
         containt_zone.html(img);
         var url="/home";
         $.get(url,function(data){
@@ -40,7 +40,7 @@ $(document).ready(function(){
     }
     function getMapPage(){
         var img;
-     var img="<img src="+"{{ url_for('static', filename='img/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
+     var img="<img src="+"{{ url_for('static', filename='images/loading.gif') }}" +"style='margin-left: auto;margin-right: auto; display: block'>";
         containt_zone.html(img);
         var url="/map";
         $.get(url,function(data){
