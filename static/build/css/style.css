@@ -82,7 +82,7 @@ body {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     padding: 20px 30px;
     box-sizing: border-box;
-    width: 80%;
+    width: auto;
     margin: 0 10%;
 
     /*stacking fieldsets above each other*/
@@ -299,4 +299,8 @@ body {
 /*decoration de la partie de calcul de la surface.*/
 .computeSurface li{
     list-style: none;
+}
+
+.myinput{
+    width: 100%;
 }

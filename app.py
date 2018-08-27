@@ -32,7 +32,7 @@ def getdata_timeline():
 @app.route('/')
 def index():
 
-    return render_template('startup_page.html')
+    return render_template('login.html')
 @app.route('/home')
 def home():
 
