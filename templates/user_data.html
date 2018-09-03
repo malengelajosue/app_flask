@@ -1,0 +1,40 @@
+<div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th>
+                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="check-all" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                </th>
+                <th class="column-title">No </th>
+                <th class="column-title">Noms</th>
+                <th class="column-title">Telephone&nbsp;<i class='fa fa-phone'></i></th>
+                <th class="column-title">Emails&nbsp;<i class='fa fa-envelope'></i></th>
+                <th class="column-title">Nom d'utilisateur&nbsp;<i class='fa fa-user'></i> </th>
+                <th class="column-title">Mot de passe&nbsp;<i class='fa fa-lock'></i> </th>
+                <th class="column-title no-link last"><span class="nobr">Type de compte&nbsp;<i class='fa fa-user-secret'></i></span></th>
+                <th class="column-title">Dernière connection&nbsp;<i class='fa fa-history'></i></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for type in type_utilisateur %}
+                {% for u in type.utilisateurs %}
+                <tr class="even pointer">
+                    <td class="a-center ">
+                        <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                    </td>
+                    <td class=" ">{{loop.index}}</td>
+                    <td class=" ">{{u.prenom}}&nbsp;{{u.nom}}</td>
+                    <td class=" ">{{u.telephone}}</td>
+                    <td class=" ">{{u.email}} <i class="success fa fa-long-arrow-up"></i></td>
+                    <td class=" ">{{u.username}}</td>
+                    <td class=" ">**********</td>
+                    <td class="a-right a-right ">{{type.nom}}</td>
+                    <td class=" last"><a href="#">{{u.derniere_connection}}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

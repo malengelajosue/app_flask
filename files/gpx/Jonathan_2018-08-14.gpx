@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><gpx version="1.1" creator="Josue MALENGELA - Elie KABUNDA" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+	<trk>
+		<trkseg>
+			<trkpt lat="-11.6744" lon="27.479643">
+				<ele>1244.0</ele>
+				<time>2018-08-14 15:59:43.673703</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674403" lon="27.479642">
+				<ele>1244.4</ele>
+				<time>2018-08-14 15:59:45.753638</time>
+				<extensions>
+					<speed>0.03</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674403" lon="27.479642">
+				<ele>1244.4</ele>
+				<time>2018-08-14 15:59:47.831198</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1244.8</ele>
+				<time>2018-08-14 15:59:49.915195</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1244.8</ele>
+				<time>2018-08-14 15:59:54.071175</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1244.8</ele>
+				<time>2018-08-14 15:59:56.149310</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1244.9</ele>
+				<time>2018-08-14 16:00:00.310886</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1244.9</ele>
+				<time>2018-08-14 16:00:02.389232</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1245.3</ele>
+				<time>2018-08-14 16:00:08.632712</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1245.3</ele>
+				<time>2018-08-14 16:00:10.712193</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1245.3</ele>
+				<time>2018-08-14 16:00:12.794580</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1245.3</ele>
+				<time>2018-08-14 16:00:14.870320</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.674405" lon="27.47964">
+				<ele>1245.3</ele>
+				<time>2018-08-14 16:00:19.026641</time>
+				<extensions>
+					<speed>0.00</speed>
+				</extensions>
+			 </trkpt>
+		</trkseg>
+	</trk>
+</gpx>

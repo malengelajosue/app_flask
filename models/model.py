@@ -2,8 +2,9 @@
 from sqlalchemy import Column, String, Integer, Date, Text, ForeignKey,DateTime
 from sqlalchemy.orm import relationship
 
-from . db_connection import Base
+from . db_connection import Base,Session
 from datetime import datetime
+
 
 # les sites
 class Sites(Base):
@@ -50,24 +51,35 @@ class Utilisateur(Base):
     __tablename__='Utilisateur'
     id = Column(Integer, primary_key=True)
     nom=Column(String(50))
-    postnom=Column(String(50))
+
     prenom=Column(String(50))
     telephone = Column(String(50))
     emails=Column(String(50))
     username=Column(String(50))
     password=Column(String(50))
     type_utilisateur_id=Column(Integer,ForeignKey('Type_utilisateur.id'))
-    derniere_connection = Column(Date, nullable=True)
+    derniere_connection = Column(DateTime, nullable=True, default=datetime.utcnow)
     date_creation = Column(Date, nullable=True, default=datetime.utcnow)
 
-    def __init__(self,nom,postnom,prenom,telephone,emails,username,password):
+    def __init__(self,nom,prenom,telephone,emails,username,password):
         self.nom=nom
-        self.postnom=postnom
+
         self.prenom=prenom
         self.telephone=telephone
         self.password=password
         self.emails=emails
         self.username=username
+        self.type_utilisateur_id=2
+
+    def save(self):
+        session=Session()
+        session.add(self)
+        session.commit()
+        session.close()
+
+
+
+
 
 #La classe type d'utilisateur
 class Type_utilisateur(Base):
