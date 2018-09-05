@@ -13,11 +13,12 @@
                 <th class="column-title">Mot de passe&nbsp;<i class='fa fa-lock'></i> </th>
                 <th class="column-title no-link last"><span class="nobr">Type de compte&nbsp;<i class='fa fa-user-secret'></i></span></th>
                 <th class="column-title">Dernière connection&nbsp;<i class='fa fa-history'></i></th>
+                <th class="column-title">Action&nbsp;<i class='fa fa-history'></i></th>
             </tr>
         </thead>
 
         <tbody>
-            {% for type in type_utilisateur %}
+            {% for type in typeUtilisateur %}
                 {% for u in type.utilisateurs %}
                 <tr class="even pointer">
                     <td class="a-center ">
@@ -26,11 +27,13 @@
                     <td class=" ">{{loop.index}}</td>
                     <td class=" ">{{u.prenom}}&nbsp;{{u.nom}}</td>
                     <td class=" ">{{u.telephone}}</td>
-                    <td class=" ">{{u.email}} <i class="success fa fa-long-arrow-up"></i></td>
+                    <td class=" ">{{u.emails}} </td>
                     <td class=" ">{{u.username}}</td>
                     <td class=" ">**********</td>
                     <td class="a-right a-right ">{{type.nom}}</td>
                     <td class=" last"><a href="#">{{u.derniere_connection}}</a>
+                    </td>
+                    <td class=" last"><a href="#"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>
                 {% endfor %}

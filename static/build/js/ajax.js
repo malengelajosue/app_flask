@@ -79,6 +79,13 @@ $(document).ready(function(){
             containt_zone.html(data);
         });
     }
+      function getFieldPapers(){
+  
+
+           
+            $('#draw_zone').laod("http://www.fieldpapers.org/compose#16/-11.6797/27.4909")
+      
+    }
    
 
     setTimeout(getMessage,1);
@@ -104,6 +111,12 @@ $(document).ready(function(){
         getSettingsPage();
        
     });
+  $('#draw_map_btn').click(function(){
+        
+        getFieldPapers();
+       
+    });
+    
     
     
 });

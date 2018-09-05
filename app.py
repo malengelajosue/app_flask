@@ -2,7 +2,7 @@
 import os
 import sqlalchemy
 
-from flask import Flask, render_template, Response, request,send_from_directory, jsonify
+from flask import Flask, render_template, Response, request,send_from_directory, jsonify,session
 from sqlalchemy import desc,or_
 
 from camera_opencv import Camera
@@ -35,7 +35,10 @@ def getdata_timeline():
 @app.route('/')
 def index():
 
+
     return render_template('login.html')
+
+
 @app.route('/home')
 def home():
 
@@ -84,7 +87,8 @@ def get_user():
     session = Session()
     type_utilisateur = session.query(Type_utilisateur).order_by(desc(Type_utilisateur.id))
     session.close()
-    return render_template('user_data.html', type_utilisateur=type_utilisateur)
+
+    return render_template('user_data.html',typeUtilisateur=type_utilisateur)
 
 @app.route('/test')
 def test1():

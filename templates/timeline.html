@@ -1,22 +1,53 @@
 
 
-
-<div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-left top_search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Rechercher" id="timelinetxtsearch">
-                <span class="input-group-btn">
-                    <button class="btn btn-default"  type="button">Rechercher</button>
-                </span>
+<div class="row">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile-stats">
+            <div class="icon"><i class="fa fa-repeat"></i>
             </div>
+            <div class="count"><a href="">Actualiser</a></div>
+
+            <h3>Actualiser la page</h3>
+            <p>Recommencer</p>
+        </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile-stats">
+            <div class="icon"><i class="fa fa-crop"></i>
+            </div>
+            <div class="count"><a href="#" id="draw_map_btn">Créer carte</a></div>
+
+            <h3>Field Papers</h3>
+            <p>Créer la carte sur Field Paper</p>
+        </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile-stats">
+            <div class="icon"><i class="fa fa-upload"></i>
+            </div>
+            <div class="count"><a href="https://www.openstreetmap.org/traces/" target="blank_">Charger GPX</a></div>
+
+            <h3>OpenStreepMap</h3>
+            <p>Charger le fichier GPX</p>
+          
+        </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile-stats">
+            <div class="icon"><a href="#" data-toggle="modal" data-target="#myModal" id="trigger_my_modal"><i class="fa fa-map" ></i></a>
+            </div>
+            <div class="count"><a href="#" data-toggle="modal" data-target="#myModal" id="trigger_my_modal">Voir trace</a></div>
+
+            <h3>OpenStreetMap</h3>
+            <p>Traces des zones capturées</p>
+            
         </div>
     </div>
 </div>
+<div id="draw_zone">
 <div class="x_panel">
     <div class="x_title">
         <h2>Historique des  prélèvements <small></small></h2>
-        <button  class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#myModal" id="trigger_my_modal"><i class="fa fa-map"></i> &nbsp;Carte</button>
 
         <div class="clearfix"></div>
     </div>
@@ -110,7 +141,7 @@
 
     </div>
 </div>
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog mymodal " >
@@ -164,5 +195,21 @@
     </div>
 </div>
 
-<script src="{{url_for('static',filename='build/js/map_show.js')}}"> </script>
+<script src="{{url_for('static',filename='build/js/map_show.js')}}"></script>
 
+<script>
+    $(document).ready(function(){
+        function getFieldPapers(){
+        var url="http://www.fieldpapers.org/compose#16/-11.6797/27.4909";
+        $.get(url,function(data){
+           
+            $('#draw_zone').html(data);
+        });
+    }
+    $('#draw_map_btn').click(function(){
+        
+        getFieldPapers();
+       
+    });
+    });
+</script>

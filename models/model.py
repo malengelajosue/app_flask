@@ -58,7 +58,7 @@ class Utilisateur(Base):
     username=Column(String(50))
     password=Column(String(50))
     type_utilisateur_id=Column(Integer,ForeignKey('Type_utilisateur.id'))
-    derniere_connection = Column(DateTime, nullable=True, default=datetime.utcnow)
+    derniere_connection = Column(Date, nullable=True, default=datetime.utcnow)
     date_creation = Column(Date, nullable=True, default=datetime.utcnow)
 
     def __init__(self,nom,prenom,telephone,emails,username,password):

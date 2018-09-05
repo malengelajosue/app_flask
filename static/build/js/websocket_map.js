@@ -102,7 +102,7 @@ $(document).ready(function () {
                 return "http://tile.openstreetmap.org/" + zoom + "/" + x + "/" + coord.y + ".png";
             },
             tileSize: new google.maps.Size(256, 256),
-            name: "OpenStreetMap",
+            name: "OSM",
             maxZoom: 18
         }
         ));

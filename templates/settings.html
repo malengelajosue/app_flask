@@ -32,6 +32,14 @@
                 <div id="myTabContent2" class="tab-content">
 
                     <div role="tabpanel" class="tab-pane fade" id="tab_content22" aria-labelledby="profile-tab">
+                        <div class="alert alert-success alert-dismissible fade in" role="alert" id="alert_sucess">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <strong>Le compte utilisateur</strong> a été crée avec sucèss!.
+                        </div>
+                        <div class="alert alert-success alert-dismissible fade in" role="alert" id="alert_fail">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <strong>Une erreur</strong>s'est produite lors de la creation du compte.
+                        </div>
                         <div class="col-md-6 col-xs-12">
 
                             <form class="form-horizontal " method="post" action="{{url_for('settings')}}">
@@ -67,7 +75,7 @@
                                     <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback" style='margin-bottom: 20px'>
-                                    {{form.password(class_="form-control has-feedback-left")}}
+                                    {{form.confPassword(class_="form-control has-feedback-left")}}
                                     <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
@@ -75,7 +83,7 @@
                                     <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
 
                                         <button class="btn btn-primary" type="reset">Recomencer&nbsp;<i class='fa fa-refresh'></i></button>
-                                        <button type="submit" class="btn btn-success">Ajouter&nbsp;<i class='fa fa-check'></i></button>
+                                        <button id="btnSubmit" type="button" class="btn btn-success" disabled >Ajouter&nbsp;<i class='fa fa-check'></i></button>
                                     </div>
                                 </div>
 
@@ -97,6 +105,8 @@
 </div>
 <script >
     $(document).ready(function () {
+        $('#alert_sucess').hide();
+        $('#alert_fail').hide();
         function getUserData() {
             var url = "/user_data";
             $.get(url, function (data) {
@@ -106,5 +116,85 @@
             });
         }
         getUserData();
+
+
+        $('#btnSubmit').click(function () {
+            if (verifie()) {
+                valider();
+
+            }
+        });
+        var firstName, lastName, email, telephone, username, password, confPassword, btnSubmit;
+        btnSubmit = $('#btnSubmit');
+        firstName = $('#firstName');
+        lastName = $('#lastName');
+        email = $('#email');
+        telephone = $('#telephone');
+        username = $('#username');
+        password = $('#password');
+        confPassword = $('#confPassword');
+        firstName.keyup(function () {
+            verifie();
+        });
+        lastName.keydown(function () {
+            verifie();
+        });
+        email.keyup(function () {
+            verifie();
+        });
+        telephone.keyup(function () {
+            verifie();
+        });
+        username.keyup(function () {
+            verifie();
+        });
+        password.keyup(function () {
+            if (password.val() === '' ||password.length<5 || confPassword === '' || (password.val() !== confPassword.val())) {
+                password.css('borderColor', 'red');
+                confPassword.css('borderColor', 'red');
+            }else{
+                 password.css('borderColor', 'green');
+                confPassword.css('borderColor', 'green');
+            }
+        });
+        
+        btnSubmit.click(function(){
+            valider();
+        });
+        confPassword.keyup(function () {
+            if (password.val() === '' ||password.length<5 || confPassword === '' || (password.val() !== confPassword.val())) {
+                password.css('borderColor', 'red');
+                confPassword.css('borderColor', 'red');
+            }else{
+                 password.css('borderColor', 'green');
+                confPassword.css('borderColor', 'green');
+            }
+        });
+        //Verification de la validation des donnees
+        function verifie() {
+            if (firstName.val() !== '' && lastName.val() !== '' && email.val() !== '' && telephone.val() !== '' && username.val() !== '' && (password.val() === confPassword.val())) {
+                btnSubmit.removeAttr('disabled');
+            }
+            else{
+                 btnSubmit.attr('disabled','disabled');
+            }
+        }
+        function valider() {
+            btnSubmit.attr('disabled','disabled');
+            $.ajax({
+                url: '/settings',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function (response) {
+                    
+                    $('#alert_sucess').show();
+                    $('form')[0].reset();
+                },
+                error: function (error) {
+                    console.log(error);
+                    $('#alert_fail').show();
+                }
+            });
+        }
     });
 </script>
