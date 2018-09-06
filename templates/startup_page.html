@@ -1,113 +1,117 @@
-<!DOCTYPE html>
-<html lang="en" >
-
-    <head>
-        <meta charset="UTF-8">
-        <title>Startuppage</title>
-
-        <link rel="stylesheet" href="{{ url_for('static' ,filename='build/css/reset.min.css')}}">
-        <link rel="stylesheet" href="{{ url_for('static' ,filename='build/css/style.css')}}">
-        <link rel="stylesheet" href="{{ url_for('static',filename='build/css/normalize.css')}}">
 
 
+                    <div class="row tile_count">
 
-    </head>
+                        <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-arrows-v"></i> Latitude</span>
+                            <div class="count" id="lat">N/A</div>
 
-    <body>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-arrows-h"></i> Longitude</span>
+                            <div class="count green" id="long">N/A</div>
 
-        <div  class='brand'  >
-            <h1 class='hbrand'><strong>CARTO</strong>&nbsp;drone</h1>
-        </div>
-        <!-- multistep form -->
-        <form id="msform">
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-caret-square-o-up"></i> Altitude</span>
+                            <div class="count" id="alt" >N/A</div>
 
-            <!-- progressbar -->
-            <ul id="progressbar">
-                <li class="active">Test</li>
-                <li>Profile</li>
-                <li>Finalisation</li>
-            </ul>
-            <!-- fieldsets -->
-            <fieldset>
-                <h2 class="fs-title">Test de connectivite</h2>
-                <h3 class="fs-subtitle">Etape 1</h3>
-                <hr class="hr_up">
-                <table>
-                    <tr>
-                        <td style=" text-align: left"><label for="gps_usb_port"> Drone: &nbsp;</label></td>
-                        <td style="width: 70px"> 
-                            <input type="text" placeholder="Adresse IP" class="txt_ip_address"/>:
-                            <input type="text" placeholder="Port" class="txt_port"/></td>
+                        </div>
+                        <div class="col-md-1 col-sm-4 col-xs-6 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-tachometer"></i> Vitesse</span>
+                            <div class="count" id="speed" > N/A </div>
 
-                        <td>Connected</td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: left"><label for="gps_usb_port"> GPS: &nbsp;</label></td>
-                        <td > <select name="gps_usb_port" class="txt_element">
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-compass"></i> Course</span>
+                            <div class="count" id="course" > N/A </div>
 
-                                <option value="">Port usb 1</option>
-                                <option value="">Port usb 2</option>
-                            </select></td>
-                        <td style="text-align: right">Connected</td>
-                    </tr>
-                    <tr style=" text-align: left">
-                        <td><label for="gps_usb_port"> GPS: &nbsp;</label></td>
-                        <td> <select name="gps_usb_port" class="txt_element">
+                        </div>
+                        <div class="col-md-1 col-sm-4 col-xs-6 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-signal"></i> stallites</span>
+                            <div class="count" id="sat" > N/A </div>
 
-                                <option value="">Port usb 1</option>
-                                <option value="">Port usb 2</option>
-                            </select></td>
-                        <td style="text-align: right">Connected</td>
-                    </tr>
-                    <tr style=" text-align: left">
-                        <td><label for="gps_usb_port">Multiwii: &nbsp;</label></td>
-                        <td> <select name="gps_usb_port" class="txt_element">
-                                <option value="">Connection GPS</option>
-                                <option value="">Port usb 1</option>
-                                <option value="">Port usb 2</option>
-                            </select></td>
-                        <td style="text-align: right">Connected</td>
-                    </tr>
-                   
+                        </div>
 
-                </table>
+                    </div>
+                    <div class='row'>
 
-                <hr class="hr_bottom">
-                <input type="button" name="next" class="next action-button-test" value="Tester" />
-                <input type="button" name="next" class="next action-button" value="Suivant" />
-                
-            </fieldset>
-            <fieldset>
-                <h2 class="fs-title">Profile</h2>
-                   <h3 class="fs-subtitle">Etape 2</h3>
-                <h3 class="fs-subtitle">Tapez votre nom et un petit commentaire</h3>
-                <hr class=" hr_up">
 
-                <input type="text" name="name" placeholder="nom" class="txt_profile"/><br/>
-                <textarea name="address" placeholder="Commentaire" class="txt_profile"></textarea>
-                <hr class="hr_bottom">
-                <input type="button" name="previous" class="previous action-button_back" value="precedent" />
-                <input type="button" name="next" class="next action-button" value="Suivant" />
-            </fieldset>
-            <fieldset onload="access_code()">
-                <h2 class="fs-title">Finalisation </h2>
-                       <h3 class="fs-subtitle">Etape 3</h3>
-                    <h3 class="fs-subtitle">Finalisation de la configuration</h3>
-                    <hr class="hr_up">
-                    <h1 class="access-code" id='hcode'>Code d'accès : 3252</h1>
-                    <hr class="hr_bottom">
-                    <input type="button" name="previous" class="previous action-button_back" value="precedent" />
-                    <input type="submit" name="submit" class="submit action-button" value="Suivant" />
-                    <input type="button" name="finish" class="next action-button" value="Terminer" />
-            </fieldset>
-        </form>
-        <script src="{{url_for('static',filename='build/js/jquery.min.js')}}"></script>
-        <script src="{{ url_for('static',filename='build/js/jquery.easing.min.js')}}"></script>
-         <script  src="{{url_for('static',filename='build/js/index.js')}}"></script>
+                        <div class="bs-example col-md-7 col-sm-12 col-xs-12 " data-example-id="video" >
+                            <img id="imgtag" class="div_map_and_img" src="{{  url_for('video_feed') }}" width="100%" height="560"/>
+
+                        </div>
+                        <div class="col-md-5 col-sm-12 col-xs-12 div_map_and_img">
+                            <div  id="map"  style="height: 480px; position: relative; overflow: hidden;">
+                                <div class="container">
+                                    <img src="{{  url_for('static',filename='img/loading2.gif') }}" style="margin-left: auto;margin-top: auto;"/>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="pull-left">
+                                <div id="secondTenthsExample">
+                                    <div  style="font-size: x-large;"><b class="timer_values">00.00.00.00</b></div>
+                                </div>
+                            </div>
+                            <div class="form-group pull-right">
+
+                                <button type="button" class="btn btn-success" id="btnLaunchModal" data-toggle="modal" data-target=".bs-example-modal-sm">Capturer <i class="fa fa-caret-square-o-right"></i></button>
+                                <button type="button" class="btn btn-danger" id="btnStopCaptureModal" disabled>Arreter <i class="fa fa-caret-square-o-right"></i></button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!--MAP-->
 
 
 
+                    <div id="modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
 
-    </body>
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel2">Informations</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal">
+                                        <label for="site_name">Nom du site:</label>
+                                        <div>
+                                            <input  id='txtSiteName' type='text' class='form-control' name='site_name' placeholder="Entrez le nom site"/>
+                                        </div>
+                                        <label for="data_type">Type de prelevement:</label>
+                                        <div  >
+                                            <select id='cbxCaptureType' name='data_type' class="form-control">
+                                                <option value='2'>Polygonal</option>
+                                                <option value='1'>Ponctuel</option>
 
-</html>
+
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="comment">Commentaire:</label>
+                                            <textarea id="txtComment" required="required" class="form-control" name="comment" placeholder="Saisissez un commentaire"></textarea>
+                                        </div>
+
+
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                            <button type="reset" class="btn btn-info" >Reset</button>
+                                            <button type="button" class="btn btn-success" id='btnCaptureModal' disabled="disabled">Commencer la capture</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /modals -->
+                     <!-- /Chargement des bibiotheques -->
+                      <script src="{{ url_for('static',filename= 'build/js/websocket_map.js' ) }} "></script>
