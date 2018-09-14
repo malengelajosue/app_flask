@@ -10,7 +10,10 @@ html {
     /*Image only BG fallback*/
 
     /*background = gradient + image pattern combo*/
-    background-image: 
+  
+}
+#login_page{
+      background-image: 
         radial-gradient(circle at center,rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
 }
 

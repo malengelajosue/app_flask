@@ -77,7 +77,8 @@ class Utilisateur(Base):
         session.commit()
         session.close()
 
-
+    def chekUser(self,username):
+        pass
 
 
 

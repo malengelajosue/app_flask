@@ -26,35 +26,50 @@
         <link href="{{ url_for('static',filename='build/css/pnotify.css' ) }} " rel="stylesheet">
         <link href="{{ url_for('static',filename='build/css/switchery.min.css' ) }} " rel="stylesheet">
         <script src="{{ url_for('static',filename='vendors/jquery/dist/jquery.min.js' ) }} "></script>
-                <style> 
-                    #header{
-                        border-bottom: #D9DEE4 1px solid;
-                        text-align: center;
-                        margin-bottom: 4px;
-                      
-                    }
-                    #test-title{
-                        border-bottom: #D9DEE4 1px dashed;
-                        text-align: center;
-                        margin-bottom: 4px;
-                      
-                    }
-                    #brand{
-                        border-right:  #D9DEE4 1px solid;
-                    }
-                    #img_brand{
-                       margin: auto;
-                       margin-top: 10%;
-                       display: block;
-                       
-                       
-                    }
-                    #test{
-                       
-                        text-align: center;
-                      
-                    }
-                </style>
+        <style> 
+            #header{
+                border-bottom: #D9DEE4 1px solid;
+                text-align: center;
+                margin-bottom: 4px;
+
+            }
+            #test-title{
+                border-bottom: #D9DEE4 1px dashed;
+                text-align: center;
+                margin-bottom: 4px;
+
+            }
+            #brand{
+                border-right:  #D9DEE4 1px solid;
+            }
+            #img_brand{
+                margin: auto;
+                margin-top: 10%;
+                display: block;
+
+
+            }
+            #test{
+
+                text-align: center;
+
+            }
+            .drone_arm{
+            
+                height:  60px;
+                width:   300px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                margin-top: 10px;
+                box-shadow: #D9DEE4 3px 3px 2px 0px 
+                    
+                    
+            }
+            .tab_sep{
+                border-bottom: #D9DEE4 1px solid;
+            }
+        </style>
     </head>
 
     <body class="nav-sm">
@@ -121,13 +136,42 @@
                         </div>
                         <div class='col-md-6 col-sm-12 col-xs-12' id="test">
                             <div id='test-title'>
-                            <h3>Test des modules</h3>
+                                <h3>Test des modules</h3>
                             </div>
                             <div>
-                                tabeau
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="tab_sep">
+                                            <td style="width: 200px">
+                                                <img src="{{url_for('static', filename='img/drone_gps.png')}} " width="100" height="100">
+                                            </td>
+                                            <td><button class="btn btn-info"> Connection au GPS</button></td>
+                                            <td><span class="label label-success">Connection etablie</span></td>
+                                        </tr>
+                                        <tr class="tab_sep">
+                                            <td>
+                                                <img src="{{url_for('static', filename='img/drone_control.png')}}" width="100" height="100">
+                                            </td>
+                                            <td><button class="btn btn-info"> Connection au drone</button></td>
+                                            <td><span class="label label-success">Connection etablie</span></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+                        
                     </div>
+                      <div id="footer" class='col-md-12 col-sm-12 col-xs-12'>
+                          <button class="btn btn-round btn-info btn-lg drone_arm">Armer le drone</button>
+                        </div>
                 </div>
                 {%endblock%}
             </div>
@@ -167,7 +211,7 @@
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEgSO--XOCL7QuApRd-5AVq1AxKNFil3I&libraries=geometry,drawing"
         async defer></script>
-      
+
         <script>
 $(document).ready(function () {
     var txtComment, txtSiteName, btnCaptureModal;
@@ -186,11 +230,11 @@ $(document).ready(function () {
     }
     //Evenement sur le keyup
     txtComment.keyup(function () {
-    
+
         if (txtComment.val().length > 10) {
-             verifier();
+            verifier();
             txtComment.css('borderColor', '#37e579');
-          
+
 
         } else {
             txtComment.css('borderColor', '#e24e46');
@@ -207,10 +251,10 @@ $(document).ready(function () {
             verifier();
         }
     });
-    
-    
+
+
     //chargement de la carte
-    
+
 });
 
         </script>

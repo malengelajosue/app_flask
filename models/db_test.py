@@ -5,11 +5,7 @@ from models.db_connection  import Session,engine,Base
 
 Base.metadata.create_all(engine)
 session=Session()
-type=session.query(Type_utilisateur).get(2)
-print(type)
 
-utilisateur=Utilisateur("MALENGELA","MPASA","Josue","09898325235","mail@gmail.com",'cartographe1',"carto123")
-type.utilisateurs.append(utilisateur)
-session.add(type)
-session.commit()
-session.close()
+user =session.query(Utilisateur).filter(Utilisateur.username.like('% j %'))
+
+print(user)

@@ -2,7 +2,7 @@
 import os
 import sqlalchemy
 
-from flask import Flask, render_template, Response, request,send_from_directory, jsonify,session
+from flask import Flask, render_template, Response, request,send_from_directory, jsonify,session,redirect
 from sqlalchemy import desc,or_
 
 from camera_opencv import Camera
@@ -21,7 +21,11 @@ app.config['SECRET_KEY']='2417871974YYBBBB'
 
 #fonction de recuperation des donnees
 
-
+def verifier():
+    if session.get('user')!=True:
+        return False
+    else:
+        return True
 #les routes utilisees par ajax
 @app.route('/getdata_timeline')
 def getdata_timeline():
@@ -37,7 +41,15 @@ def index():
 
 
     return render_template('login.html')
+@app.route('/authentication',methods=['POST'])
+def authentication():
+    session['user'] = True
 
+    if request.form['username']=='username' and request.form['password']=='password':
+
+        return redirect('/carto')
+    else:
+        return render_template('login.html')
 
 @app.route('/home')
 def home():
@@ -46,8 +58,14 @@ def home():
 
 @app.route('/carto')
 def carto():
+    if session.get('user'):
 
-    return render_template('layouts/base.html')
+        return render_template('layouts/base.html')
+
+    else:
+
+        return redirect('/')
+
 
 @app.route('/get_trace_information/<id>')
 def get_trace_information(id):
