@@ -1,0 +1,944 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><gpx version="1.1" creator="Josue MALENGELA - Elie KABUNDA" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+	<trk>
+		<trkseg>
+			<trkpt lat="-11.6764030885" lon="27.4809573591">
+				<ele></ele>
+				<time>2018-08-22 22:58:01.889479</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764033400" lon="27.4809570238">
+				<ele>1235.4</ele>
+				<time>2018-08-22 22:58:01.889688</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764030885" lon="27.4809565209">
+				<ele>1235.4</ele>
+				<time>2018-08-22 22:58:01.889812</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764033400" lon="27.4809556827">
+				<ele>1235.9</ele>
+				<time>2018-08-22 22:58:01.889927</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764033400" lon="27.4809545930">
+				<ele>1235.9</ele>
+				<time>2018-08-22 22:58:01.890043</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764040105" lon="27.4809530005">
+				<ele>1235.9</ele>
+				<time>2018-08-22 22:58:01.890159</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764052678" lon="27.4809526652">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.890270</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764064413" lon="27.4809520785">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.890381</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764082853" lon="27.4809511565">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.890495</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764082853" lon="27.4809502345">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.890605</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764077824" lon="27.4809498154">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.890718</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764098778" lon="27.4809483904">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.890828</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764131468" lon="27.4809483066">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.890937</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764139850" lon="27.4809491448">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.891059</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764151584" lon="27.4809477199">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.891195</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764164157" lon="27.4809476361">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.891305</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764170025" lon="27.4809477199">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.891416</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764170863" lon="27.4809482228">
+				<ele>1236.8</ele>
+				<time>2018-08-22 22:58:01.891527</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764166672" lon="27.4809482228">
+				<ele>1237.3</ele>
+				<time>2018-08-22 22:58:01.891638</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764164995" lon="27.4809480552">
+				<ele>1237.3</ele>
+				<time>2018-08-22 22:58:01.891751</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764175054" lon="27.4809469655">
+				<ele>1237.3</ele>
+				<time>2018-08-22 22:58:01.891862</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764182597" lon="27.4809465464">
+				<ele>1237.8</ele>
+				<time>2018-08-22 22:58:01.891975</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764195170" lon="27.4809457082">
+				<ele>1237.8</ele>
+				<time>2018-08-22 22:58:01.892095</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764208581" lon="27.4809462111">
+				<ele>1237.8</ele>
+				<time>2018-08-22 22:58:01.892209</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764206905" lon="27.4809463788">
+				<ele>1237.3</ele>
+				<time>2018-08-22 22:58:01.892319</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764201876" lon="27.4809473846">
+				<ele>1237.3</ele>
+				<time>2018-08-22 22:58:01.892429</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764198523" lon="27.4809484743">
+				<ele>1237.3</ele>
+				<time>2018-08-22 22:58:01.892538</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764185112" lon="27.4809500668">
+				<ele>1237.3</ele>
+				<time>2018-08-22 22:58:01.892651</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764169186" lon="27.4809519108">
+				<ele>1236.8</ele>
+				<time>2018-08-22 22:58:01.892762</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764144879" lon="27.4809545930">
+				<ele>1236.8</ele>
+				<time>2018-08-22 22:58:01.892875</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764118057" lon="27.4809566885">
+				<ele>1236.8</ele>
+				<time>2018-08-22 22:58:01.892985</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764099617" lon="27.4809604604">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.893097</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764086206" lon="27.4809655733">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.893207</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764087882" lon="27.4809701834">
+				<ele>1236.3</ele>
+				<time>2018-08-22 22:58:01.893320</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764091235" lon="27.4809749611">
+				<ele>1235.9</ele>
+				<time>2018-08-22 22:58:01.893433</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764092073" lon="27.4809814151">
+				<ele>1235.9</ele>
+				<time>2018-08-22 22:58:01.893542</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764093749" lon="27.4809876177">
+				<ele>1235.9</ele>
+				<time>2018-08-22 22:58:01.893652</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764092911" lon="27.4809943233">
+				<ele>1235.9</ele>
+				<time>2018-08-22 22:58:01.893767</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764092073" lon="27.4810031243">
+				<ele>1235.9</ele>
+				<time>2018-08-22 22:58:01.893878</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764083691" lon="27.4810111709">
+				<ele>1235.4</ele>
+				<time>2018-08-22 22:58:01.893988</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764101293" lon="27.4810182955">
+				<ele>1235.4</ele>
+				<time>2018-08-22 22:58:01.894104</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764100455" lon="27.4810275994">
+				<ele>1234.9</ele>
+				<time>2018-08-22 22:58:01.894217</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764083691" lon="27.4810390826">
+				<ele>1234.4</ele>
+				<time>2018-08-22 22:58:01.894325</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764089558" lon="27.4810483865">
+				<ele>1233.9</ele>
+				<time>2018-08-22 22:58:01.894435</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764084529" lon="27.4810590316">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.894545</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764097940" lon="27.4810689222">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.894654</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764090396" lon="27.4810778908">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.894763</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764081176" lon="27.4810887035">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.894880</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764095426" lon="27.4810967501">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.894993</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764110513" lon="27.4810984265">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.895103</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764196008" lon="27.4810940679">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.895212</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764256358" lon="27.4810871109">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.895321</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764329281" lon="27.4810848478">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.895433</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764413100" lon="27.4810817465">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.895547</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764482670" lon="27.4810768012">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.895661</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764563136" lon="27.4810752086">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.895770</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764653660" lon="27.4810732808">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.895879</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764766816" lon="27.4810722750">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.895989</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764862370" lon="27.4810698442">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.896109</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764961276" lon="27.4810675811">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.896223</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765055992" lon="27.4810660724">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.896333</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765168309" lon="27.4810634740">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.896451</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765276436" lon="27.4810620490">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.896561</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765398812" lon="27.4810593668">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.896736</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765508614" lon="27.4810586963">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.896846</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765592434" lon="27.4810578581">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.896956</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765696369" lon="27.4810574390">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.897069</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765783541" lon="27.4810568523">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.897179</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765893344" lon="27.4810594507">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.897288</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765982192" lon="27.4810609594">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.897397</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766081937" lon="27.4810615461">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.897506</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766183358" lon="27.4810630549">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.897616</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766289808" lon="27.4810631387">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.897725</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766407155" lon="27.4810625520">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.897844</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766509414" lon="27.4810612947">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.897953</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766596586" lon="27.4810601212">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.898065</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766680405" lon="27.4810605403">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.898175</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766755842" lon="27.4810601212">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.898288</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766789369" lon="27.4810597859">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.898397</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766713094" lon="27.4810524937">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.898512</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766677890" lon="27.4810467102">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.898621</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766663641" lon="27.4810363166">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.898729</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766651906" lon="27.4810247496">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.898838</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766643524" lon="27.4810140207">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.898947</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766632628" lon="27.4810026214">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.899056</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766627599" lon="27.4809932336">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.899171</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766616702" lon="27.4809851870">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.899285</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766594071" lon="27.4809773918">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.899394</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766571440" lon="27.4809662439">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.899504</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766579822" lon="27.4809534196">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.899620</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766573116" lon="27.4809416849">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.899730</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766558867" lon="27.4809307046">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.899840</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766558867" lon="27.4809208978">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.899953</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766566411" lon="27.4809118453">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.900070</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766568087" lon="27.4809065647">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.900185</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766459122" lon="27.4809104204">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.900298</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766337585" lon="27.4809135217">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.900408</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766220238" lon="27.4809159525">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.900518</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6766092833" lon="27.4809177965">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.900627</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765969619" lon="27.4809195567">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.900742</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765838861" lon="27.4809212331">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.900852</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765690502" lon="27.4809216522">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.900961</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765564773" lon="27.4809215683">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.901070</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765443236" lon="27.4809222389">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.901182</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765325051" lon="27.4809227418">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.901295</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765208542" lon="27.4809249211">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.901409</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6765085328" lon="27.4809255078">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.901518</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764981393" lon="27.4809244182">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.901628</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764865723" lon="27.4809236638">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.901737</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764743347" lon="27.4809230771">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.901853</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764604207" lon="27.4809213169">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.901963</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764479317" lon="27.4809205625">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.902072</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764363647" lon="27.4809201434">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.902185</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764237080" lon="27.4809197243">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.902298</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764122248" lon="27.4809201434">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.902411</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6764014121" lon="27.4809221551">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.902525</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763900127" lon="27.4809219874">
+				<ele>1233.9</ele>
+				<time>2018-08-22 22:58:01.902636</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763801221" lon="27.4809209816">
+				<ele>1233.9</ele>
+				<time>2018-08-22 22:58:01.902748</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763735004" lon="27.4809192214">
+				<ele>1233.9</ele>
+				<time>2018-08-22 22:58:01.902863</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763707343" lon="27.4809193891">
+				<ele>1233.9</ele>
+				<time>2018-08-22 22:58:01.902972</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763732489" lon="27.4809234962">
+				<ele>1233.9</ele>
+				<time>2018-08-22 22:58:01.903082</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763776075" lon="27.4809269328">
+				<ele>1233.5</ele>
+				<time>2018-08-22 22:58:01.903191</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763830557" lon="27.4809333030">
+				<ele>1233.0</ele>
+				<time>2018-08-22 22:58:01.903300</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763895936" lon="27.4809401762">
+				<ele>1232.5</ele>
+				<time>2018-08-22 22:58:01.903410</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763942037" lon="27.4809431937">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.903520</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763922758" lon="27.4809425231">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.903633</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763900127" lon="27.4809411820">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.903742</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763883363" lon="27.4809414335">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.903852</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763880011" lon="27.4809404276">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.903961</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763884202" lon="27.4809394218">
+				<ele>1232.0</ele>
+				<time>2018-08-22 22:58:01.904082</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763889231" lon="27.4809377454">
+				<ele>1231.5</ele>
+				<time>2018-08-22 22:58:01.904192</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763900127" lon="27.4809368234">
+				<ele>1231.5</ele>
+				<time>2018-08-22 22:58:01.904312</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763905156" lon="27.4809366558">
+				<ele>1231.5</ele>
+				<time>2018-08-22 22:58:01.904422</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+			<trkpt lat="-11.6763912700" lon="27.4809374101">
+				<ele>1231.5</ele>
+				<time>2018-08-22 22:58:01.904538</time>
+				<extensions>
+					<speed>0.0</speed>
+				</extensions>
+			 </trkpt>
+		</trkseg>
+	</trk>
+</gpx>
