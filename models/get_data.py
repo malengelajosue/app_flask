@@ -14,7 +14,7 @@ class Details():
         r = self.session.query(Sites).get(id)
         coord = r.coordonnates
         myList = []
-        myList.append({'type': r.capture_type})
+        myList.append({'type': r.type_prelevement})
         for i in coord:
             mydic = {}
             mydic['lat'] = i.lat

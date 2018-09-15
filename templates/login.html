@@ -73,7 +73,7 @@
                 <div id="container">
                 <div class="form-login">   
                     <input class="" type="text" placeholder="Nom d'utilisateur" name="username" id="username"><br/>
-<input class="" type="text" placeholder="Mot de passe" name="password" id="password">
+                    <input class="" type="password" placeholder="Mot de passe" name="password" id="password">
 </div>
 <div class="loading"></div>
                     </div>
@@ -114,7 +114,8 @@ $(document).ready(function () {
     login_btn.click(function(){
         login_btn.css('display','none');
         login_btn_alt.show();
-        
+        password.html('');
+        username.html('');
         password.text('');
     });
     

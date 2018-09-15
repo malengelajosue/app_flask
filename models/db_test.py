@@ -5,7 +5,10 @@ from models.db_connection  import Session,engine,Base
 
 Base.metadata.create_all(engine)
 session=Session()
+username='josuemmmm'
+user =session.query(Utilisateur).filter(Utilisateur.username.like('%'+username+'%')).all()
+if  user==[]:
+    print('vide')
+else:
 
-user =session.query(Utilisateur).filter(Utilisateur.username.like('% j %'))
-
-print(user)
+    print(user[0])

@@ -5,7 +5,7 @@
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-repeat"></i>
             </div>
-            <div class="count"><a href="">Actualiser</a></div>
+            <div class="count"><a href="#" class="btn_actualiser">Actualiser</a></div>
 
             <h3>Actualiser la page</h3>
             <p>Recommencer</p>
@@ -29,7 +29,7 @@
 
             <h3>OpenStreepMap</h3>
             <p>Charger le fichier GPX</p>
-          
+
         </div>
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -40,107 +40,121 @@
 
             <h3>OpenStreetMap</h3>
             <p>Traces des zones capturées</p>
-            
+
         </div>
     </div>
 </div>
 <div id="draw_zone">
-<div class="x_panel">
-    <div class="x_title">
-        <h2>Historique des  prélèvements <small></small></h2>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Historique des  prélèvements <small></small></h2>
 
-        <div class="clearfix"></div>
-    </div>
-    <div class="x_content" id="dataZone_timeline">
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content" id="dataZone_timeline">
 
-        <ul class="list-unstyled timeline" >
-            {% for s in sites %}
-            <li>
-                <div class="block">
-                    <div class="tags">
-                        <a href="#" class="tag data_view" id="{{s.id}}">
-                            <span>Apercu <i class="fa fa-eye"></i></span>
-                        </a>
-                    </div>
-                    <div class="block_content">
-                        <h2 class="title">
-                            <a>Site de &nbsp; {{s.name |title}} &nbsp;({{s.coordonnates|length}} &nbsp;points)</a>
-                        </h2>
-                        <div class="byline">
-                            <span>Crée le &nbsp; {{s.create_at}} </span> type de prelevement <a>{{s.capture_type }}</a>
-                        </div>
-                        <p class="excerpt">{{s.description }}
-
-                        </p>
-                        <p class="url">
-                            <a href="{{url_for('download_files',id=s.id)}}" class="btn btn-info btn-xs">
-                                Fichier GPX &nbsp; <i class="fa fa-download"></i>
+            <ul class="list-unstyled timeline" >
+                {% for s in sites %}
+                <li>
+                    <div class="block">
+                        <div class="tags">
+                            <a href="#" class="tag data_view" id="{{s.id}}">
+                                <span>Apercu <i class="fa fa-eye"></i></span>
                             </a>
+                        </div>
+                        <div class="block_content">
+                            <h2 class="title">
+                                <a>Site de &nbsp; {{s.name |title}} &nbsp;({{s.coordonnates|length}} &nbsp;points)</a>
+                            </h2>
+                            <div class="byline">
+                                <span>Crée le &nbsp; {{s.create_at}} </span> type de prelevement <a>{{s.capture_type }}</a>
+                            </div>
+                            <p class="excerpt">{{s.description }}
 
-                        </p>
-                        <div class="accordion" id="accordion{{s.id}}" role="tablist" aria-multiselectable="true">
-                            <div class="panel">
-                                <a class="panel-heading collapsed" role="tab" id="headingOne1" data-toggle="collapse" data-parent="#accordion{{s.id}}" href="#collapseOne{{s.id}}" aria-expanded="false" aria-controls="collapseOne">
-                                    <h4 class="panel-title">Details</h4>
+                            </p>
+                            <p class="url">
+                                <a href="{{url_for('download_files',id=s.id)}}" class="btn btn-info btn-xs">
+                                    Fichier GPX &nbsp; <i class="fa fa-download"></i>
                                 </a>
-                                <div id="collapseOne{{s.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
-                                    <div class="panel-body">
 
-                                        <table class="table table-striped jambo_table bulk_action">
-                                            <thead>
-                                                <tr class="headings">
+                            </p>
+                            <div class="accordion" id="accordion{{s.id}}" role="tablist" aria-multiselectable="true">
+                                <div class="panel">
+                                    <a class="panel-heading collapsed" role="tab" id="headingOne1" data-toggle="collapse" data-parent="#accordion{{s.id}}" href="#collapseOne{{s.id}}" aria-expanded="false" aria-controls="collapseOne">
+                                        <h4 class="panel-title">Details</h4>
+                                    </a>
+                                    <div id="collapseOne{{s.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                                        <div class="panel-body">
 
-                                                    <th class="column-title">No  </th>
-                                                    <th class="column-title">Latitude </th>
-                                                    <th class="column-title">Longitude</th>
-                                                    <th class="column-title">Altitude</th>
-                                                    <th class="column-title">Vitesse</th>
-                                                    <th class="column-title">Course</th>
-                                                    <th class="column-title">Satellite</th>
-                                                    <th class="column-title">Date</th>
-                                                    <th class="column-title">Site </th>
+                                            <table class="table table-striped jambo_table bulk_action">
+                                                <thead>
+                                                    <tr class="headings">
 
-                                                </tr>
-                                            </thead>
+                                                        <th class="column-title">No  </th>
+                                                        <th class="column-title">Latitude </th>
+                                                        <th class="column-title">Longitude</th>
+                                                        <th class="column-title">Altitude</th>
+                                                        <th class="column-title">Vitesse</th>
+                                                        <th class="column-title">Course</th>
+                                                        <th class="column-title">Satellite</th>
+                                                        <th class="column-title">Date</th>
+                                                        <th class="column-title">Site </th>
 
-                                            <tbody>
-                                                {% for c in s.coordonnates %}
-                                                <tr class="even pointer">
-                                                    <td class="a-center ">
-                                                        {{loop.index}}
-                                                    </td>
-                                                    <td class=" ">{{c.lat}}</td>
-                                                    <td class=" ">{{c.long}}</td>
-                                                    <td class=" ">{{c.alt}}<i class="success fa fa-long-arrow-up"></i></td>
-                                                    <td class=" ">{{c.speed}}</td>
-                                                    <td class=" ">{{c.course}}</td>
-                                                    <td class=" ">{{c.satellite}}</td>
-                                                    <td class=" ">{{c.moment}}</td>
-                                                    <td class=" ">{{s.name}}</td>
+                                                    </tr>
+                                                </thead>
 
-                                                </tr>
-                                                {% if (s.coordonnates)|length==0 %}
-                                                <tr>Aucune donnee trouvé !</tr>
-                                                {% endif %}
-                                                {% endfor %}
-                                            </tbody>
-                                        </table>
+                                                <tbody>
+                                                    {% for c in s.coordonnates %}
+                                                    <tr class="even pointer">
+                                                        <td class="a-center ">
+                                                            {{loop.index}}
+                                                        </td>
+                                                        <td class=" ">{{c.lat}}</td>
+                                                        <td class=" ">{{c.long}}</td>
+                                                        <td class=" ">{{c.alt}}<i class="success fa fa-long-arrow-up"></i></td>
+                                                        <td class=" ">{{c.speed}}</td>
+                                                        <td class=" ">{{c.course}}</td>
+                                                        <td class=" ">{{c.satellite}}</td>
+                                                        <td class=" ">{{c.moment}}</td>
+                                                        <td class=" ">{{s.name}}</td>
 
+                                                    </tr>
+                                                    {% if (s.coordonnates)|length==0 %}
+                                                    <tr>Aucune donnee trouvé !</tr>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+
+                                        </div>
                                     </div>
+
+
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="row">
+                <div class="col-sm-5">
+            <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite"> </div>
+                        
+                        </div>
+                <div class="col-sm-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="datatable-checkbox_paginate">
+                        <ul class="pagination">
+                            <li class="paginate_button previous disabled" id="datatable-checkbox_previous">
+                                <a href="#" aria-controls="datatable-checkbox" data-dt-idx="0" tabindex="0">Previous</a>
+                            </li><li class="paginate_button active">
+                                <a href="#" aria-controls="datatable-checkbox" data-dt-idx="1" tabindex="0">1</a>
+                            </li><li class="paginate_button "><a href="#" aria-controls="datatable-checkbox" data-dt-idx="2" tabindex="0">2</a></li>
+                         
+                            <li class="paginate_button next" id="datatable-checkbox_next"><a href="#" aria-controls="datatable-checkbox" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div></div>
 
-
+        </div>
     </div>
-</div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -198,18 +212,33 @@
 <script src="{{url_for('static',filename='build/js/map_show.js')}}"></script>
 
 <script>
-    $(document).ready(function(){
-        function getFieldPapers(){
-        var url="http://www.fieldpapers.org/compose#16/-11.6797/27.4909";
-        $.get(url,function(data){
-           
+$(document).ready(function () {
+    function getFieldPapers() {
+        var url = "http://www.fieldpapers.org/compose#16/-11.6797/27.4909";
+        $.get(url, function (data) {
+
             $('#draw_zone').html(data);
         });
     }
-    $('#draw_map_btn').click(function(){
-        
+    $('#draw_map_btn').click(function () {
+
         getFieldPapers();
-       
+
     });
+      function getSitePage(param){
+ 
+      
+        var url="/sites/"+param;
+        $.get(url,function(data){
+           
+            containt_zone.html(data);
+        });
+    }
+   
+      $(".btn_actualiser").click(function(){
+         var p="";
+        getSitePage("%%");
+     
     });
+});
 </script>

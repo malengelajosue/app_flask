@@ -31,7 +31,7 @@ def verifier():
 def getdata_timeline():
     """Video streaming home page."""
     session = Session()
-    sites = session.query(Sites).order_by(desc(Sites.id))
+    sites = session.query(Sites).limit(10).order_by(desc(Sites.id))
     session.close()
 
     return render_template('data.html',sites=sites)
@@ -43,13 +43,24 @@ def index():
     return render_template('login.html')
 @app.route('/authentication',methods=['POST'])
 def authentication():
-    session['user'] = True
 
-    if request.form['username']=='username' and request.form['password']=='password':
+    utilisateur=Utilisateur.chekUser(request.form['username'])
 
-        return redirect('/carto')
+
+    if utilisateur!=[]:
+        if request.form['password']==utilisateur.password:
+
+            session['authentication'] =True
+            session['username'] = utilisateur.username
+            session['password'] = utilisateur.password
+            session['type']=utilisateur.type_utilisateur_id
+            return redirect('/carto')
+
+        else:
+            return redirect('/')
     else:
-        return render_template('login.html')
+
+        return redirect('/')
 
 @app.route('/home')
 def home():
@@ -58,20 +69,19 @@ def home():
 
 @app.route('/carto')
 def carto():
-    if session.get('user'):
-
+    if session.get('username'):
         return render_template('layouts/base.html')
-
     else:
-
         return redirect('/')
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
 
 @app.route('/get_trace_information/<id>')
 def get_trace_information(id):
-    data=Details()
-    retour=data.get_details(id)
-    print(retour)
+    retour=Sites.get_details(id)
     return jsonify(retour)
 
 @app.route('/map')

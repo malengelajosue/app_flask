@@ -17,10 +17,26 @@ class Sites(Base):
     create_at = Column(Date, nullable=True, default=datetime.utcnow)
     update_at = Column(Date, nullable=True)
 
-    def __init__(self,name,capture_type,description):
+    def __init__(self,name,type_prelevement,description):
         self.name=name
-        self.capture_type=capture_type
+        self.type_prelevement=type_prelevement
         self.description=description
+
+    def get_details(id):
+        session=Session()
+        r = session.query(Sites).get(id)
+        coord = r.coordonnates
+        myList = []
+        myList.append({'type': r.type_prelevement})
+        for i in coord:
+            mydic = {}
+            mydic['lat'] = i.lat
+            mydic['lng'] = i.long
+            myList.append(mydic)
+
+        session.close()
+        return myList
+
 
 #les coordonnees
 
@@ -77,8 +93,13 @@ class Utilisateur(Base):
         session.commit()
         session.close()
 
-    def chekUser(self,username):
-        pass
+    def chekUser(username):
+        session = Session()
+        user = session.query(Utilisateur).filter(Utilisateur.username.like('%' + username + '%')).all()
+        if user==[]:
+            return user
+        else:
+            return  user[0]
 
 
 

@@ -2,7 +2,7 @@
 
 
 $(document).ready(function () {
-    var map, drawingManager, donnees, dataToshow;
+    var map, drawingManager, donnees, dataToshow,firstItem;
     donnees = [];
     dataToshow = false;
 
@@ -20,9 +20,10 @@ $(document).ready(function () {
         var url = "/get_trace_information/" + id;
         $.get(url, function (data) {
             for (var i = 1; i < data.length; i++) {
-
+                 console.log(data[i]);
                 //la fonction de callback
                 onFinish(i, data[i]);
+               
 
             }
         });
@@ -153,13 +154,13 @@ $(document).ready(function () {
 
 
 
-            var firstItem = donnees[1];
-
-            console.log('le centre  de la carte' + firstItem.lat);
-            console.log('la liste des donnees' + donnees + "la taille" + donnees.length);
+//            firstItem = donnees[1];
+//
+//            console.log('le centre  de la carte' + firstItem.lat);
+//            console.log('la liste des donnees' + donnees + "la taille" + donnees.length);
             
             var marker = new google.maps.Marker({
-                position: firstItem,
+                position: donnees[1],
                 title: "Hello World!",
                 map:map,
                 icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
@@ -167,7 +168,7 @@ $(document).ready(function () {
 
             });
 
-            map.setCenter(firstItem);
+            map.setCenter(donnees[1]);
             marker.setMap(map);
             var polylineOptions = {
                 path: donnees,
@@ -181,23 +182,13 @@ $(document).ready(function () {
     }
     ;
 //evenement sur click du bouton map
-    $("#trigger_my_modal").click(function () {
-        getMessage(9);
-
-        setTimeout(
-                showDataOnMap
-                , 600);
-
-
-    });
+   
 //evenement sur la seclection de la liste 
     $('#cbx_view_sites').change(function () {
         var valeur = $(this).val();
         getMessage(valeur);
-        setTimeout(
-                showDataOnMap
-                , 1000);
-
+        setTimeout(showDataOnMap, 1000);
+        
     });
 
     function showDataOnMap() {

@@ -83,7 +83,7 @@ $(document).ready(function(){
   
 
            
-            $('#draw_zone').laod("http://www.fieldpapers.org/compose#16/-11.6797/27.4909")
+            $('#draw_zone').laod("http://www.fieldpapers.org/compose#16/-11.6797/27.4909");
       
     }
    
@@ -98,6 +98,7 @@ $(document).ready(function(){
        var p="";
         getSitePage("%%");
     });
+  
     aside_control_btn.click(function(){
         
         getControlPage();

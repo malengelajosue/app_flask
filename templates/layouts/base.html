@@ -232,6 +232,7 @@ $(document).ready(function () {
     txtComment.keyup(function () {
 
         if (txtComment.val().length > 10) {
+            console.log(txtComment.val());
             verifier();
             txtComment.css('borderColor', '#37e579');
 
