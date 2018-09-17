@@ -4,7 +4,7 @@ import sys
 import serial
 
 
-def init():
+try:
     ser = serial.Serial()
     ser.baudrate = 4800
     ser.port = '/dev/ttyUSB0'
@@ -13,16 +13,8 @@ def init():
 
     if not ser.isOpen():
         print("Unable to open serial port!")
-        raise SystemExit
+    else:
+        print("Connection etablie")
+except serial.serialutil.SerialException:
+    print("Unable to open serial port!")
 
-    while True:
-        gps = ser.read(1)
-        print
-        gps
-
-
-try:
-    init()
-except KeyboardInterrupt:
-    print
-    ("Done.")

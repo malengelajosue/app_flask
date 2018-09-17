@@ -18,7 +18,7 @@
         <!-- Font Awesome -->
         <link href=" {{ url_for('static', filename= 'vendors/font-awesome/css/font-awesome.min.css')  }} " rel="stylesheet">
         <!-- Normalize-->
-          
+
         <!-- NProgress -->
         <link href=" {{ url_for('static',filename='vendors/nprogress/nprogress.css' ) }} " rel="stylesheet">
 
@@ -57,7 +57,7 @@
 
             }
             .drone_arm{
-            
+
                 height:  60px;
                 width:   300px;
                 margin-left: auto;
@@ -65,8 +65,8 @@
                 display: block;
                 margin-top: 10px;
                 box-shadow: #D9DEE4 3px 3px 2px 0px 
-                    
-                    
+
+
             }
             .tab_sep{
                 border-bottom: #D9DEE4 1px solid;
@@ -110,7 +110,7 @@
                             <a data-toggle="tooltip" data-placement="top" title="FullScreen" >
                                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
                             </a>
-                            
+
                             <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{url_for('logout')}}">
                                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                             </a>
@@ -143,35 +143,49 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                
+
                                             </th>
                                         </tr>
+                                        <tr>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                     
                                     </thead>
                                     <tbody>
                                         <tr class="tab_sep">
                                             <td style="width: 200px">
                                                 <img src="{{url_for('static', filename='img/drone_gps.png')}} " width="100" height="100">
                                             </td>
-                                            <td><button class="btn btn-info"> Connection au GPS</button></td>
-                                            <td><span class="label label-success">Connection etablie</span></td>
+                                            <td><button class="btn btn-info" id="gps_connection_btn"> Connection au GPS</button></td>
+                                        
+                                            <td id="latlong">
+                                            </td>
+                                          
                                         </tr>
                                         <tr class="tab_sep">
                                             <td>
                                                 <img src="{{url_for('static', filename='img/drone_control.png')}}" width="100" height="100">
                                             </td>
-                                            <td><button class="btn btn-info"> Connection au drone</button></td>
-                                            <td><span class="label label-success">Connection etablie</span></td>
+                                            <td><button class="btn btn-info" id="multiwii_btn"> Controleur de vol</button></td>
+                                            <td ></td>
                                         </tr>
 
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        
+
                     </div>
-                      <div id="footer" class='col-md-12 col-sm-12 col-xs-12'>
-                          <button class="btn btn-round btn-info btn-lg drone_arm" disabled="disabled">Armer le drone</button>
-                        </div>
+                    <div id="footer" class='col-md-12 col-sm-12 col-xs-12'>
+                        <button class="btn btn-round btn-info btn-lg drone_arm" id="drone_arm_btn" >Armer le drone</button>
+                    </div>
                 </div>
                 {%endblock%}
             </div>
@@ -207,10 +221,10 @@
         <script src="{{ url_for('static',filename='build/js/jquery.knob.min.js' ) }} "></script>
         <script src="{{ url_for('static',filename= 'build/js/reconnecting-websocket.js' ) }} "></script>
 
- 
-    <!-- Bootstrap Colorpicker -->
-    <script src="{{url_for('static',filename='build/js/bootstrap-colorpicker.min.js')}}"></script>
- 
+
+        <!-- Bootstrap Colorpicker -->
+        <script src="{{url_for('static',filename='build/js/bootstrap-colorpicker.min.js')}}"></script>
+
 
 
 
@@ -257,9 +271,86 @@ $(document).ready(function () {
             verifier();
         }
     });
+    // Let us open a web socket
+
+
 
 
     //chargement de la carte
+    $('#gps_connection_btn').click(function () {
+        var ws = new WebSocket("ws://localhost:8001/ws");
+
+        ws.onopen = function () {
+
+            // Web Socket is connected, send data using send()
+            msg = {'action': 'gps_test'};
+            ws.send(JSON.stringify(msg));
+
+        };
+
+        ws.onmessage = function (evt) {
+
+            var received_msg = evt.data;
+            received_msg = JSON.parse(received_msg);
+           
+          
+            if (received_msg.Lat !== undefined) {
+                  
+            $('#latlong').html("<div class='alert alert-success alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>"+'Position:' + received_msg.Lat + '/' + received_msg.Long+"</strong> GPS connecté!</div>");
+            
+            }else{
+               $('#latlong').html("<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong></strong> Veuillez connecter le GPS</div>");
+            
+            }
+            
+        };
+
+
+    });
+
+    $('#drone_arm_btn').click(function () {
+         var ws = new WebSocket("ws://localhost:8001/ws");
+
+        ws.onopen = function () {
+
+            // Web Socket is connected, send data using send()
+            msg = {'action': 'arm_test'};
+            ws.send(JSON.stringify(msg));
+
+        };
+
+        ws.onmessage = function (evt) {
+
+            var received_msg = evt.data;
+            received_msg = JSON.parse(received_msg);
+           
+          
+            
+            
+        };
+
+    });
+    $('#multiwii_btn').click(function () {
+        var ws = new WebSocket("ws://localhost:8001/ws");
+
+        ws.onopen = function () {
+
+            // Web Socket is connected, send data using send()
+            msg = {'action': 'multiwii_test'};
+            ws.send(JSON.stringify(msg));
+
+        };
+
+        ws.onmessage = function (evt) {
+
+            var received_msg = evt.data;
+            received_msg = JSON.parse(received_msg);
+           
+          
+            
+            
+        };
+    });
 
 });
 

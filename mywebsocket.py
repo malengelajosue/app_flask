@@ -85,7 +85,7 @@ class MyAppWebSocket(tornado.websocket.WebSocketHandler):
             _description=self.description
             _type=self.capture_type
 
-            mySite=Sites(name=_name,description=_description,capture_type=_type)
+            mySite=Sites(name=_name,description=_description,type_prelevement=_type)
             self.mysite=mySite
             self.persit = True
         elif message.get('action')=='stop_persiste':
@@ -94,6 +94,16 @@ class MyAppWebSocket(tornado.websocket.WebSocketHandler):
             session.add(self.mysite)
             session.commit()
             session.close()
+        elif message.get('action')=='gps_test':
+            self.getPosition()
+            print('gps test')
+        elif message.get('action') == 'multiwii_test':
+            self.getPosition()
+            print('Multiwii test')
+        elif message.get('action') == 'arm_test':
+            self.getPosition()
+            print('Arm test')
+
     def run(self):
         time.sleep(1)
         return
